@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Illustrated user guide for the Crossfire Game Launcher: core functions, logs and crash dumps, support package contents, and what to upload with a bug report.">
+<style>body{margin:0}img{max-width:100%}</style>
+<title>Crossfire Launcher Field Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Saira+Condensed:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: banner header, then four numbered panels; each card pairs a short explanation with a mockup drawn in the launcher's own dark Petrol look. */
+:root{
+  --page:#E9EDEE; --card:#FFFFFF; --panel:#F6F8F8; --ink:#141B1D; --muted:#55636A; --line:#D3DCDE;
+  --c1:#C4262E; --c2:#16808E; --c3:#C9790F; --c4:#3D5FA8;
+  --ok:#1E7B4E; --ok-soft:#E2F2EA; --no:#B3262C;
+  /* launcher mockups stay dark in both themes, like the real app */
+  --app-bg:#1E2021; --app-bar:#121415; --app-panel:#262829; --app-line:#34393A; --app-fg:#E8ECEC; --app-dim:#9AA3A5;
+  --app-accent:#2DADBE; --app-deep:#185E68; --app-red:#E0373D; --app-amber:#D9860F; --hl:#F2A93B;
+  --f-display:"Saira Condensed","Agency FB","Arial Narrow",sans-serif;
+  --f-body:"Barlow",system-ui,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --page:#0D1112; --card:#161C1E; --panel:#1C2325; --ink:#E4EAEB; --muted:#9AA8AC; --line:#2B3538;
+  --c1:#F0585E; --c2:#3CC3D2; --c3:#F0A443; --c4:#86A4F0; --ok:#6BCB98; --ok-soft:#163026; --no:#F07479; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --page:#0D1112; --card:#161C1E; --panel:#1C2325; --ink:#E4EAEB; --muted:#9AA8AC; --line:#2B3538;
+  --c1:#F0585E; --c2:#3CC3D2; --c3:#F0A443; --c4:#86A4F0; --ok:#6BCB98; --ok-soft:#163026; --no:#F07479; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--page);color:var(--ink);font:15px/1.5 var(--f-body)}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:16px;padding-block:16px 40px;display:grid;gap:16px}
+h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance;line-height:1.1}
+p{margin:0}
+b.ui,.ui{font-weight:600;color:var(--c2);white-space:nowrap}
+code{font:500 .85em var(--f-mono);overflow-wrap:anywhere}
+
+/* Banner */
+.banner{position:relative;border-radius:10px;overflow:hidden;color:#fff;background:#07090B url("assets/NoNav.png") center 42%/cover no-repeat;min-height:200px;display:grid;align-content:end}
+.banner::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,8,10,.92) 0%,rgba(5,8,10,.7) 45%,rgba(5,8,10,.15) 100%)}
+.banner-in{position:relative;padding:28px 28px 22px;display:grid;gap:10px}
+.banner img{width:min(420px,80%);height:auto;display:block;filter:drop-shadow(0 2px 10px rgba(0,0,0,.6))}
+.banner h1{font-size:clamp(26px,4vw,42px);font-weight:600;letter-spacing:.02em;color:#fff}
+.banner h1 span{color:#5CC9D6}
+.banner nav{display:flex;flex-wrap:wrap;gap:6px 18px;font:600 15px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:#C9D3D5}
+.banner nav span+span::before{content:"·";margin-right:18px;color:#E0373D}
+
+/* Sections */
+.sec{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:16px;min-width:0}
+.sec-head{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.num{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font:700 22px/1 var(--f-display);color:#fff;background:var(--sc)}
+.sec-head h2{font-size:clamp(24px,3vw,30px);font-weight:700;color:var(--ink)}
+.sec-head p{color:var(--muted);flex-basis:100%;margin-left:54px;margin-top:-4px}
+.s1{--sc:var(--c1)} .s2{--sc:var(--c2)} .s3{--sc:var(--c3)} .s4{--sc:var(--c4)}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.duo{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:16px;align-items:start}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px;display:grid;gap:12px;align-content:start;min-width:0}
+.card-h{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:start}
+.card-h h3{font-size:20px;font-weight:700;color:var(--sc)}
+.card-h p{font-size:14px;color:var(--muted);margin-top:3px}
+.ico{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#15191A;overflow:hidden}
+.ico img{width:34px;height:34px}
+.ico svg{width:24px;height:24px}
+
+/* ---------- Launcher mockups (fixed dark look) ---------- */
+.win{background:var(--app-bg);border:1px solid var(--app-line);border-radius:6px;overflow:hidden;color:var(--app-fg);font:500 13px/1.35 var(--f-display);box-shadow:0 6px 18px rgba(0,0,0,.25);min-width:0}
+.bar{background:var(--app-bar);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:6px 10px;border-bottom:1px solid var(--app-line)}
+.bar .t{grid-column:2;font:600 13px/1 var(--f-display);letter-spacing:.08em;font-variant:small-caps;color:var(--app-accent)}
+.bar .x{justify-self:end;color:var(--app-fg);font-size:12px;letter-spacing:6px;opacity:.85}
+.wb{padding:10px;display:grid;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:600 12px/1 var(--f-display);letter-spacing:.05em;font-variant:small-caps;color:var(--app-fg);padding:7px 10px;border-radius:7px;border:1px solid var(--app-deep);background:linear-gradient(#1F2425,#141718);white-space:nowrap}
+.btn.dis{color:#6D7577;border-color:#33393A}
+.btn.primary{background:var(--app-amber);border-color:var(--app-amber);color:#fff}
+.btn.ghost{background:#2A2D2E;border-color:#45494A}
+.hot{outline:2px solid var(--hl);outline-offset:2px;box-shadow:0 0 0 5px rgba(242,169,59,.22)}
+.tabs{display:flex;gap:3px;border-bottom:1px solid var(--app-deep);padding:0 4px}
+.tab{font:600 12px/1 var(--f-display);font-variant:small-caps;letter-spacing:.05em;padding:6px 10px;border:1px solid #2F3536;border-bottom:0;border-radius:4px 4px 0 0;color:var(--app-dim);background:#2A2D2E}
+.tab.on{color:#fff;background:var(--app-bg);border-color:var(--app-deep)}
+.grp{border:1px solid var(--app-deep);border-radius:6px;padding:12px 8px 8px;position:relative;display:grid;gap:5px}
+.grp>.lg{position:absolute;top:-8px;left:10px;background:var(--app-bg);padding:0 4px;font:600 11px/1 var(--f-display);font-variant:small-caps;letter-spacing:.05em;color:var(--app-accent)}
+.cb{display:flex;gap:6px;align-items:center;font-size:12.5px}
+.cb i{flex:none;width:12px;height:12px;border:1px solid #888;border-radius:2px;background:#151718;position:relative}
+.cb i.on::after{content:"";position:absolute;left:3px;top:0;width:3.5px;height:7px;border:solid #5DDB8B;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.slider{height:3px;background:#DADADA;border-radius:2px;position:relative;margin:4px 2px}
+.slider b{position:absolute;top:-5px;width:9px;height:12px;background:#fff;clip-path:polygon(0 0,100% 0,100% 60%,50% 100%,0 60%)}
+.srow{display:flex;justify-content:space-between;align-items:center;font-size:12px}
+.sel{background:#3A3D3E;border:1px solid #55595A;border-radius:3px;padding:4px 8px;display:flex;justify-content:space-between;font-size:12px}
+.sel::after{content:"▾";color:#ccc}
+.lst{border:1px solid var(--app-line)}
+.lst div{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:5px 8px;border-top:1px solid var(--app-line);font-size:12px}
+.lst div:first-child{border-top:0;font-weight:600;color:var(--app-dim);background:#232627}
+.lst div.on{background:#344B4E;box-shadow:inset 2px 0 0 var(--app-accent)}
+.rowbtns{display:flex;flex-wrap:wrap;gap:6px}
+.logrows{background:#2A2A2A;padding:6px 8px;font:500 11.5px/1.75 var(--f-display);display:grid}
+.logrows div{display:grid;grid-template-columns:72px 34px minmax(0,1fr);gap:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.logrows .ts{color:#8A8F90}
+.logrows .lv{color:#6FA6F4;font-weight:700}
+.logrows .lv.e{color:#F06A6F}
+.filter{flex:1 1 90px;min-width:0;background:#3A3D3E;border:1px solid #6B7071;border-radius:4px;color:#9EA4A5;font-size:12px;padding:5px 8px;white-space:nowrap;overflow:hidden}
+.dlg{border:1.5px solid var(--app-amber);border-radius:8px}
+.dlg .bar{grid-template-columns:auto 1fr auto;gap:8px}
+.dlg .bar .t{grid-column:auto;color:var(--app-amber);font-size:14px}
+.dlg .warn{color:var(--app-amber)}
+.prog{height:8px;background:#121415;border:1px solid var(--app-line);border-radius:4px;overflow:hidden}
+.prog b{display:block;height:100%;width:64%;background:linear-gradient(90deg,var(--app-deep),var(--app-accent))}
+.off{position:relative;background:#07090B url("assets/Offline3.png") center/cover;padding:16px 12px;display:grid;place-items:center;min-height:178px}
+.off .box{background:rgba(22,24,25,.88);border:1px solid #4A2224;border-radius:8px;padding:12px 16px;display:grid;gap:6px;justify-items:center;text-align:center}
+.off .h{color:var(--app-red);font:700 20px/1 var(--f-display);letter-spacing:.04em;display:flex;gap:6px;align-items:center}
+.off .sub{color:#B9BFC0;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.off .btn{border-color:#8E2A2E;background:linear-gradient(#3A2526,#1C1415);margin-top:4px}
+.toolbar{display:flex;gap:8px;align-items:center;padding:8px;background:#1F2122;flex-wrap:wrap}
+.menu{display:grid;gap:4px;padding:8px}
+.menu .btn{justify-content:flex-start;padding:9px 12px;font-size:13px}
+
+/* File tree */
+.tree{font:500 13.5px/1.25 var(--f-mono);display:grid;gap:6px;color:var(--ink)}
+.tree div{display:flex;gap:8px;align-items:center;min-width:0}
+.tree .l1{padding-left:14px}
+.tree .l2{padding-left:44px}
+.tree small{font:400 12.5px var(--f-body);color:var(--muted)}
+.fi{flex:none;width:18px;height:18px}
+.tag{font:600 10.5px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--c3);padding:3px 6px;border-radius:3px}
+.hint{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--sc);border-radius:6px;padding:10px 12px;font-size:13.5px;color:var(--muted)}
+.hint b{color:var(--ink)}
+
+/* Support package contents */
+.contents{display:grid;gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--panel)}
+.zipbar{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;padding:10px 14px;background:#1E2021;color:#fff}
+.zipbar svg{flex:none}
+.zipbar code{font-size:13px;color:#fff}
+.it{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;padding:10px 14px;border-top:1px solid var(--line);font-size:14px}
+.it .n{font:600 13px var(--f-mono);color:var(--ink);overflow-wrap:anywhere}
+.it .d{color:var(--muted);font-size:13.5px}
+.it .q{display:inline-block;font:600 11px/1 var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:var(--c3);border:1px solid var(--c3);border-radius:3px;padding:3px 5px;margin-left:6px;vertical-align:1px}
+.dot{width:12px;height:12px;border-radius:50%;margin-top:4px;background:var(--ok)}
+.dot.c{background:transparent;border:2px solid var(--ok)}
+.safe{display:flex;gap:12px;align-items:center;background:var(--ok-soft);border:1px solid var(--ok);border-radius:8px;padding:12px 14px;font-size:15px}
+.safe svg{flex:none;color:var(--ok)}
+
+/* Steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.step{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.step .k{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font:700 20px/1 var(--f-display);color:var(--sc);border:2px solid var(--sc)}
+.step h3{font-size:19px;font-weight:700;color:var(--ink)}
+.step p{font-size:14px;color:var(--muted);margin-top:2px}
+.step.key{border-color:var(--sc);box-shadow:inset 3px 0 0 var(--sc)}
+.fname{display:inline-block;margin-top:6px;font:500 12.5px var(--f-mono);color:var(--ink);background:var(--card);border:1px dashed var(--line);padding:4px 8px;border-radius:4px;overflow-wrap:anywhere}
+
+footer{font-size:12.5px;color:var(--muted);text-align:center}
+
+@media (max-width:1060px){.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3>:last-child{grid-column:1/-1}}
+@media (max-width:820px){.duo{grid-template-columns:1fr}}
+@media (max-width:620px){
+  .grid4,.grid3{grid-template-columns:1fr}.grid3>:last-child{grid-column:auto}
+  .sec-head p{margin-left:0}
+  .banner-in{padding:20px 16px 18px}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="banner">
+  <div class="banner-in">
+    <img src="assets/Crossfire.png" alt="Crossfire" width="880" height="200">
+    <h1>Game Launcher · <span>Complete User Guide</span></h1>
+    <nav aria-label="Topics"><span>Play</span><span>Manage</span><span>Configure</span><span>Get Support</span></nav>
+  </div>
+</header>
+
+<!-- 1 -->
+<section class="sec s1" aria-labelledby="h1">
+  <div class="sec-head"><span class="num">1</span><h2 id="h1">Core functions</h2><p>Everything you need to play and manage the game.</p></div>
+  <div class="grid4">
+
+    <article class="card">
+      <div class="card-h"><span class="ico"><svg viewBox="0 0 24 24" fill="#E0373D" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg></span>
+        <div><h3>Start and update the game</h3><p>The launcher checks for updates automatically and installs them before launch.</p></div></div>
+      <div class="win dlg" aria-hidden="true">
+        <div class="bar"><span class="warn">▲</span><span class="t">Attention, Captain!</span><span class="x">✕</span></div>
+        <div class="wb">
+          <span>The star map has been updated.</span>
+          <span style="color:var(--app-dim)">Download the latest galaxy updates before launching?</span>
+          <div class="prog"><b></b></div>
+          <div class="rowbtns" style="justify-content:flex-end"><span class="btn primary hot">Update Now</span><span class="btn ghost">Risk Adventure</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-h"><span class="ico"><img src="assets/AccountManager.png" alt=""></span>
+        <div><h3>Manage accounts</h3><p>Open <b class="ui">Account Manager</b> to add, edit, import, export, and back up account profiles.</p></div></div>
+      <div class="win" aria-hidden="true">
+        <div class="bar"><span class="t">Accounts</span><span class="x">─ ✕</span></div>
+        <div class="wb">
+          <div class="tabs"><span class="tab on">Accounts</span><span class="tab">Backup</span></div>
+          <div class="rowbtns"><span class="btn">Add</span><span class="btn dis">Delete</span></div>
+          <div class="lst"><div><span>Name</span><span>Last used</span></div><div class="on"><span>Main Pilot</span><span>today</span></div><div><span>Trader</span><span>yesterday</span></div><div><span>Test Account</span><span>last week</span></div></div>
+          <div class="rowbtns"><span class="btn">Import ▾</span><span class="btn dis">Save</span><span class="btn">Reload</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-h"><span class="ico"><img src="assets/002-settings.png" alt=""></span>
+        <div><h3>Adjust settings</h3><p>Open <b class="ui">Settings</b> for graphics/options, UI scale/theme, music, and diagnostics.</p></div></div>
+      <div class="win" aria-hidden="true">
+        <div class="bar"><span class="t">Settings</span><span class="x">─ ✕</span></div>
+        <div class="wb">
+          <div class="tabs"><span class="tab on">General</span><span class="tab">Graphics</span><span class="tab">Appearance</span></div>
+          <div class="grp"><span class="lg">UI Scaling</span><div class="slider"><b style="left:18%"></b></div><div class="srow"><span>110%</span><span class="btn ghost">Reset</span></div></div>
+          <div class="grp"><span class="lg">Background Music</span><div class="slider"><b style="left:4%"></b></div><div class="srow"><span>4%</span><span class="btn ghost">Reset</span></div></div>
+          <div class="grp"><span class="lg">General Options</span><span class="cb"><i class="on"></i>Window-Mode</span><span class="cb"><i class="on"></i>Adjust to Desktop resolution</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-h"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#E0373D" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 8.5a15 15 0 0 1 20 0M5.5 12a10 10 0 0 1 13 0M9 15.5a5 5 0 0 1 6 0"/><circle cx="12" cy="19" r="1" fill="#E0373D"/><path d="M3 3l18 18"/></svg></span>
+        <div><h3>Work offline</h3><p>If the network is unavailable, the launcher switches to offline mode and offers reconnect retries.</p></div></div>
+      <div class="win" aria-hidden="true">
+        <div class="bar"><span class="t" style="color:var(--app-red)">Crossfire Game Launcher</span><span class="x">─ ✕</span></div>
+        <div class="off"><div class="box">
+          <span class="h"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M5 5l14 14"/></svg>OFFLINE</span>
+          <span class="sub">No connection to server</span>
+          <span class="btn hot">Retry ↻</span>
+        </div></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="sec s2" aria-labelledby="h2">
+  <div class="sec-head"><span class="num">2</span><h2 id="h2">Logs and crash dumps</h2><p>View logs, find where files are stored, and switch on crash dump collection if needed.</p></div>
+  <div class="grid3">
+
+    <article class="card">
+      <div class="card-h"><span class="ico"><img src="assets/001-log.png" alt=""></span>
+        <div><h3>View logs in the launcher</h3><p>Open <b class="ui">Log</b> to view live logs, filter entries, copy all, or save to a text file.</p></div></div>
+      <div class="win" aria-hidden="true">
+        <div class="bar"><span class="t">Logs</span><span class="x">─ ✕</span></div>
+        <div class="toolbar"><span class="btn hot">Copy All</span><span class="btn hot">Save...</span><span class="btn">Clear</span><span class="filter hot">Filter logs...</span></div>
+        <div class="logrows">
+          <div><span class="ts">23:16:09.530</span><span class="lv">Info</span><span>Launcher started</span></div>
+          <div><span class="ts">23:16:11.266</span><span class="lv">Info</span><span>Checking for available launcher updates…</span></div>
+          <div><span class="ts">23:16:14.640</span><span class="lv">Info</span><span>Startup update check completed.</span></div>
+          <div><span class="ts">23:16:23.987</span><span class="lv">Info</span><span>Launcher is already up-to-date.</span></div>
+          <div><span class="ts">23:18:02.114</span><span class="lv e">Error</span><span>Game process exited unexpectedly</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-h"><span class="ico"><svg viewBox="0 0 24 24" fill="#E8A33A" aria-hidden="true"><path d="M2 6a2 2 0 0 1 2-2h5l2 2h9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/></svg></span>
+        <div><h3>File locations</h3><p>Persistent log files and crash dumps are stored in the launcher's folder.</p></div></div>
+      <div class="tree" role="list" aria-label="Folder structure">
+        <div role="listitem"><svg class="fi" viewBox="0 0 24 24" fill="#E8A33A"><path d="M2 6a2 2 0 0 1 2-2h5l2 2h9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/></svg>CFLauncher/</div>
+        <div role="listitem" class="l1"><span style="color:var(--muted)">├─</span><svg class="fi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2h8l5 5v15H6z"/><path d="M14 2v5h5M9 12h7M9 16h7"/></svg>launcher.log</div>
+        <div role="listitem" class="l2"><small>current persistent launcher log</small></div>
+        <div role="listitem" class="l1"><span style="color:var(--muted)">├─</span><svg class="fi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2h8l5 5v15H6z"/><path d="M14 2v5h5M9 12h7M9 16h7"/></svg>launcher.log.old</div>
+        <div role="listitem" class="l2"><small>previous rotated log</small></div>
+        <div role="listitem" class="l1"><span style="color:var(--muted)">└─</span><svg class="fi" viewBox="0 0 24 24" fill="#E8A33A"><path d="M2 6a2 2 0 0 1 2-2h5l2 2h9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/></svg>CrashDumps/<span class="tag">opt-in</span></div>
+        <div role="listitem" class="l2"><small>crash dumps, only if collection is enabled</small></div>
+      </div>
+      <div class="hint"><span><b>Tip:</b> the Log window shows what is happening now; these files keep the record after the launcher is closed.</span></div>
+    </article>
+
+    <article class="card">
+      <div class="card-h"><span class="ico"><img src="assets/002-settings.png" alt=""></span>
+        <div><h3>Enable crash dump collection</h3><p>Optional. Must be switched on in <b class="ui">Settings → General → Diagnostics</b>.</p></div></div>
+      <div class="win" aria-hidden="true">
+        <div class="bar"><span class="t">Settings</span><span class="x">─ ✕</span></div>
+        <div class="wb">
+          <div class="tabs"><span class="tab on">General</span><span class="tab">Graphics</span><span class="tab">Appearance</span></div>
+          <div class="grp"><span class="lg">Diagnostics</span>
+            <span class="cb hot" style="padding:3px 4px;border-radius:3px"><i class="on"></i>Collect crash data when the game crashes (experimental)</span>
+            <span style="font-size:11px;font-variant:small-caps;letter-spacing:.05em;padding-left:18px">Crash dumps to keep</span>
+            <span class="sel" style="margin-left:18px">5</span>
+            <span class="cb"><i></i>Verbose logging</span>
+          </div>
+        </div>
+      </div>
+      <div class="hint"><span><b>Verbose logging</b> sits in the same group. Turn it on before reproducing a problem to get more detail in the log.</span></div>
+    </article>
+
+  </div>
+</section>
+
+<div class="duo">
+<!-- 3 -->
+<section class="sec s3" aria-labelledby="h3">
+  <div class="sec-head"><span class="num">3</span><h2 id="h3">Support case: what data is collected</h2><p>Use <b class="ui">Log → Support Package...</b> to create one ZIP file for support.</p></div>
+  <div class="win" aria-hidden="true">
+    <div class="bar"><span class="t">Logs</span><span class="x">─ ✕</span></div>
+    <div class="toolbar"><span class="btn">Copy All</span><span class="btn">Save...</span><span class="btn">Clear</span><span class="btn hot">Support Package...</span><span class="filter">Filter logs...</span></div>
+  </div>
+  <div class="contents" role="list" aria-label="Support package contents">
+    <div class="zipbar">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F2A93B" stroke-width="1.8" aria-hidden="true"><path d="M5 2h10l4 4v16H5z"/><path d="M11 2v2h2v2h-2v2h2v2h-2v3"/><rect x="10" y="13" width="4" height="4" rx="1"/></svg>
+      <code>CrossfireSupport_YYYYMMDD_HHMMSS.zip</code>
+      <span style="font-size:13px;color:#C2CACC">diagnostic data only</span>
+    </div>
+    <div class="it" role="listitem"><span class="dot"></span><div><span class="n">launcher.log</span> <span class="d">+ <code>launcher.log.old</code> if present</span></div></div>
+    <div class="it" role="listitem"><span class="dot c"></span><div><span class="n">CrashDumps/</span><span class="q">max. 2 newest</span><br><span class="d">Recent crash dumps</span></div></div>
+    <div class="it" role="listitem"><span class="dot"></span><div><span class="n">systeminfo.txt</span><br><span class="d">Launcher version, OS / .NET / runtime info, paths</span></div></div>
+    <div class="it" role="listitem"><span class="dot c"></span><div><span class="n">eventlog.txt</span><span class="q">if available</span><br><span class="d">Recent relevant Windows Application Event Log entries</span></div></div>
+    <div class="it" role="listitem"><span class="dot c"></span><div><span class="n">WER/...</span><span class="q">if available</span><br><span class="d">Relevant Windows Error Reporting files</span></div></div>
+  </div>
+  <div class="safe"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.4 9.3-8 11-4.6-1.7-8-6-8-11V5z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+    <span>The support package does <b>not</b> intentionally include launcher account data.</span></div>
+</section>
+
+<!-- 4 -->
+<section class="sec s4" aria-labelledby="h4">
+  <div class="sec-head"><span class="num">4</span><h2 id="h4">What to upload to support</h2><p>Follow these steps when reporting an issue.</p></div>
+  <ol class="steps">
+    <li class="step"><span class="k">1</span><div><h3>Reproduce the issue</h3><p>Enable <b class="ui">Verbose logging</b> first if needed.</p></div></li>
+    <li class="step"><span class="k">2</span><div><h3>Create a support package</h3><p>Use <b class="ui">Log → Support Package...</b> to generate the ZIP file.</p></div></li>
+    <li class="step key"><span class="k">3</span><div><h3>Upload the ZIP file</h3><p>Attach the generated file to your bug report.</p><span class="fname">CrossfireSupport_YYYYMMDD_HHMMSS.zip</span></div></li>
+    <li class="step"><span class="k">4</span><div><h3>Add details</h3><p>Write short reproduction steps and when the issue happened.</p></div></li>
+  </ol>
+</section>
+</div>
+
+<footer>Crossfire Game Launcher · Window contents shown are examples; names and values on your PC will differ.</footer>
+</div>
+</body>
+</html>
