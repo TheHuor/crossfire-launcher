@@ -20,7 +20,7 @@ export function initSearch(root,articles,locale){
   status.textContent=!input.value.trim()?u.emptySearch:matches.length?`${matches.length} ${u.resultCount}`:u.noResults;
   for(const match of matches){
    const article=articles.find(a=>a.id===match.id),li=root.createElement('li'),a=root.createElement('a'),title=root.createElement('strong'),summary=root.createElement('span');
-   a.href=root.body.dataset.base+localizedRoute(locale,'guide',article.id);title.textContent=article.title;summary.textContent=article.summary;a.append(title,summary);li.append(a);list.append(li);
+   a.href=root.body.dataset.base+localizedRoute(locale,c.featurePages?.some(p=>p.id===article.id)?'features/'+article.id:'guide',c.featurePages?.some(p=>p.id===article.id)?'':article.id);title.textContent=article.title;summary.textContent=article.summary;a.append(title,summary);li.append(a);list.append(li);
   }
  };
  form.addEventListener('submit',event=>{event.preventDefault();render();});

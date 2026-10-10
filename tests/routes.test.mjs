@@ -12,3 +12,9 @@ test('saved supported language wins; unsupported language falls back safely',()=
   assert.equal(resolveLocale(null,['fr-FR']),'en');
   assert.equal(localizedRoute('xx','unrecognized'),'en/');
 });
+test('feature pages retain their topic and section across languages',()=>{
+ assert.equal(localizedRoute('de','features/accounts','account-backup'),'de/features/accounts/#account-backup');
+ assert.equal(localizedRoute('en','features/settings'),'en/features/settings/');
+ assert.equal(localizedRoute('de','features'),'de/features/');
+ assert.equal(localizedRoute('en','features/unknown'),'en/');
+});

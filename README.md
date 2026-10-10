@@ -21,6 +21,8 @@ Open `http://127.0.0.1:4173/crossfire-launcher/de/` or `/crossfire-launcher/en/`
 - `/de/start/`, `/en/start/`: installation checklist.
 - `/de/guide/`, `/en/guide/`: complete user guide.
 - `/de/help/`, `/en/help/`: guided troubleshooting and bug report template.
+- `/de/features/`, `/en/features/`: feature overview with eight dedicated explanations.
+- `/de/features/<topic>/`, `/en/features/<topic>/`: updates, accounts, settings, offline, logs, crash-dumps support-package and command-line.
 - `/guide/`: compatible English guide, including the former `#h1` through `#h4` links.
 
 All asset and internal links are relative, supporting repository-based GitHub Pages paths. The `.nojekyll` file is retained. Generated HTML pages are committed alongside the sources so GitHub Pages can serve this repository directly.
@@ -47,7 +49,7 @@ All guides and external links remain readable without JavaScript. The checklist,
 
 Current installation does not require FLMM. Original Freelancer remains a prerequisite. This website does not distribute Freelancer itself.
 
-The supplied Crossfire artwork is used in the hero. Genuine new-launcher screenshots were not included in the repository; none are fabricated. Product views can be added when verified screenshots are available. Exact first-run dialog labels and restart behavior are intentionally described only to the extent confirmed by the owner and guide.
+The supplied Crossfire artwork is used in the hero. The main launcher view was captured from the installed launcher (file metadata version 1.7.3.0). Settings General/Graphics/Appearance and Logs screenshots were supplied by the project owner; their exact launcher version is not inferred. Account Manager identifiers and the personal backup folder are concealed in privacy-edited images, explicitly labeled as AI-edited. Command-line help, Petrol appearance and launcher dialogs are supplied by the owner. Dialog explanations follow visible labels and owner-confirmed Single Player behavior. A dedicated offline-state screenshot remains pending.
 
 ## Assets
 
@@ -60,3 +62,7 @@ Existing Crossfire artwork remains from the source project. Tabler outline icons
 Browser QA checks Desktop, Tablet and Mobile with DE/EN, navigation, search empty/no-result states, feature selection, image-dialog focus, persisted progress, language/step preservation, troubleshooting back/reset and report copy. See `design-qa.md`.
 
 Publishing is a separate step. Before publishing, run build and tests and configure GitHub Pages to serve the intended branch at the repository root. No remote push or publication has been performed as part of this local implementation.
+
+## Feature content and screenshots
+
+Feature detail pages reuse the corresponding article sections and add translated workflows in featurePages. launcherShots provides filenames, dimensions, translated captions and confirmed version or owner credit. sectionShots maps captures to the relevant section. Assets are stored in assets/images/screenshots/. Add verified captures to both content files and regenerate HTML. Search sends feature results directly to their detail page; installation results retain their guide anchor. Tests validate models, image headers, both languages and all 26 localized pages.

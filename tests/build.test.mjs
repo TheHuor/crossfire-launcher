@@ -18,7 +18,7 @@ test('build produces readable bilingual pages with valid links at root and Pages
   await buildSite({outputDir:dir});
   const legacy=await readFile(path.join(dir,'guide/index.html'),'utf8');
   for(const oldAnchor of ['h1','h2','h3','h4'])assert.ok(legacy.includes(`id="${oldAnchor}"`),`Legacy link #${oldAnchor} no longer resolves`);
-  const routes=['','guide/','de/','en/',...['de','en'].flatMap(l=>['start','guide','help'].map(p=>`${l}/${p}/`))];
+  const routes=['','guide/','de/','en/',...['de','en'].flatMap(l=>['start','guide','help','features',...['updates','accounts','settings','offline','logs','crash-dumps','support-package','command-line'].map(id=>'features/'+id)].map(p=>`${l}/${p}/`))];
   for(const route of routes){
    const html=await readFile(path.join(dir,route,'index.html'),'utf8');
    assert.match(html,/<html lang="(?:de|en)"/);

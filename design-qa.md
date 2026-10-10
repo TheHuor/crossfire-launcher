@@ -24,3 +24,9 @@ A temporary copy with module scripts omitted was verified at 320px: no horizonta
 
 **final result: passed**
 
+
+## Feature pages and supplied screenshots
+
+Eight dedicated feature pages per language and an overview reuse the existing site shell and guide content. Settings General/Graphics/Appearance, Logs, Account Manager/Backup, command-line help, Petrol style and three launcher dialogs are documented from owner-supplied images. Account IDs, signature and personal backup path are concealed in explicitly labeled privacy edits; original account images are not distributed. A dedicated offline-state capture remains pending.
+
+Verified the 18 new overview/detail routes at 320px without horizontal overflow; Settings also inspected at 390 and desktop, Account Manager and update dialog at desktop. Search finds Command line and links to its detail route. Language switching retains feature and section. Image dialog closes with Escape and returns focus to its invoking control. Mobile menu opens and closes. Tested browser error logs were empty. Automated link checks cover all 26 localized pages, legacy routes, root and repository prefix. All 15 tests passed. Independent review identified shell-specific command syntax; explicit Command Prompt and PowerShell guidance resolves it. Displayed path escaping corrected.

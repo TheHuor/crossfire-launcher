@@ -20,8 +20,8 @@ export function initSite(root=document){
  const selectFeature=id=>{if(!panels.some(p=>p.dataset.featurePanel===id))id='updates';panels.forEach(p=>p.hidden=p.dataset.featurePanel!==id);featureLinks.forEach(a=>{if(a.dataset.feature===id)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current');});};
  if(panels.length){selectFeature(location.hash.startsWith('#feature-')?location.hash.slice(9):'updates');featureLinks.forEach(a=>a.addEventListener('click',()=>selectFeature(a.dataset.feature)));window.addEventListener('hashchange',()=>{if(location.hash.startsWith('#feature-'))selectFeature(location.hash.slice(9));});}
  const dialog=root.querySelector('.image-dialog');let imageTrigger=null;
- root.querySelectorAll('.hero-art>img,.inline-art>img').forEach(img=>{
-  const open=root.createElement('button');open.type='button';open.className='image-open';open.setAttribute('aria-label',u.imageZoom);img.before(open);open.append(img);
+ root.querySelectorAll('.hero-art>img,.inline-art>img,.launcher-shot>img').forEach(img=>{
+  const open=root.createElement('button');open.type='button';open.className='image-open';open.setAttribute('aria-label',u.imageZoom+': '+img.alt);img.before(open);open.append(img);
   open.addEventListener('click',()=>{imageTrigger=open;const large=dialog.querySelector('img:not(.icon)');large.src=img.src;large.alt=img.alt;dialog.querySelector('p').textContent=img.alt;dialog.showModal();});
  });
  dialog.querySelector('[data-close-image]').addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>imageTrigger?.focus());
@@ -31,4 +31,3 @@ const content=initSite();
 initOnboarding();
 initSearch(document,content.articles,content.locale);
 initSupport(document,content.supportNodes,content.locale);
-
