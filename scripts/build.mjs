@@ -11,7 +11,7 @@ export async function buildSite({outputDir=projectRoot}={}){
   const c=JSON.parse(await readFile(path.join(projectRoot,'content',locale+'.json'),'utf8'));
   if(c.locale!==locale)throw new Error('Content locale mismatch');
   contents[locale]=c;
-  for(const pageId of ['home','start','guide','help','features',...featureIds.map(id=>'features/'+id)]){
+  for(const pageId of ['home','start','guide','help','features','history',...featureIds.map(id=>'features/'+id)]){
    const dir=pageId==='home'?`${locale}/`:`${locale}/${pageId}/`;
    await write(dir+'index.html',renderPage(c,pageId,pageId==='home'?'../':pageId.startsWith('features/')?'../../../':'../../'));
   }
@@ -20,5 +20,5 @@ export async function buildSite({outputDir=projectRoot}={}){
  await write('index.html',renderRoot());
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
- await buildSite();console.log(`Built ${2*(5+featureIds.length)} bilingual pages, legacy guide and language entry.`);
+ await buildSite();console.log(`Built ${2*(6+featureIds.length)} bilingual pages, legacy guide and language entry.`);
 }

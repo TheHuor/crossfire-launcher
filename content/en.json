@@ -113,7 +113,15 @@
     "workflow": "Step by step",
     "screenshotVersion": "Captured in launcher version",
     "functionsLink": "Explore features with images",
-    "windowsHelpSources": "Windows guidance from Microsoft"
+    "windowsHelpSources": "Windows guidance from Microsoft",
+    "history": "History",
+    "historyTitle": "Launcher Updates",
+    "historyIntro": "What has improved on your way into the Crossfire universe – clear updates for players and the community.",
+    "historyLatest": "Latest entry",
+    "historyVersionNav": "Choose a version",
+    "historySource": "Editorial summary of the Crossfire Game Launcher CHANGELOG.md. Versions and dates follow that documented history; they do not indicate your installed version. Changes purely for developers are omitted.",
+    "historyScope": "This history covers the launcher. Changes to missions, ships or Multiplayer game content belong to Crossfire game updates.",
+    "historyLink": "Explore launcher history"
   },
   "links": {
     "download": "https://swat-portal.com/forum/filebase/file/1098-crossfire-2-0-client-edition/",
@@ -1284,5 +1292,161 @@
       "alt": "Offline screen: No connection to server with Retry; Single Player available and Multiplayer disabled.",
       "caption": "Offline: no connection to the server. Retry attempts to reconnect; Multiplayer is disabled."
     }
-  ]
+  ],
+  "history": {
+    "entries": [
+      {
+        "version": "1.7.3",
+        "date": "2026-10-05",
+        "relatedIds": [
+          "updates",
+          "logs"
+        ],
+        "title": "Understand update problems",
+        "notes": [
+          "Errors identify the affected file. When another program holds it open, the launcher can identify that program in the log, making it easier to narrow down the cause.",
+          "Failed file deletions are no longer reported as successful, making update problems easier to diagnose."
+        ]
+      },
+      {
+        "version": "1.7.2",
+        "date": "2026-09-13",
+        "relatedIds": [
+          "updates"
+        ],
+        "title": "A quicker path into the game",
+        "notes": [
+          "Game launch preparation works more efficiently. The documented tests particularly benefited mechanical hard drives; the improvement depends on your system.",
+          "Game options are applied more reliably. A file or folder disappearing during preparation no longer aborts the entire launch.",
+          "The window shadow stays in the right place when switching from another application to the launcher."
+        ]
+      },
+      {
+        "version": "1.7.1",
+        "date": "2026-08-30",
+        "relatedIds": [
+          "logs",
+          "crash-dumps"
+        ],
+        "title": "Fewer false alarms after playing",
+        "notes": [
+          "A particular normal Freelancer shutdown is no longer mistaken for a crash. Genuine crashes remain covered when capture is enabled.",
+          "Routine diagnostic logs expose fewer internal file paths. Warnings and errors retain the details needed for troubleshooting."
+        ]
+      },
+      {
+        "version": "1.7.0",
+        "date": "2026-08-30",
+        "relatedIds": [
+          "crash-dumps",
+          "support-package",
+          "offline",
+          "accounts"
+        ],
+        "title": "Clearer controls and better crash support",
+        "notes": [
+          "When crash capture is enabled, a dedicated status window shows progress and any capture errors. After a successful capture, you can create a support package.",
+          "You can choose how many crash dumps to retain. Support packages include additional Windows error information; account data remains excluded.",
+          "Dialogs and selection states are easier to read. Account Manager separates profile actions more clearly from full-list backups.",
+          "The offline screen explains the connection requirement for Multiplayer while keeping Single Player available. A normal double-click no longer immediately cancels an update it just started."
+        ]
+      },
+      {
+        "version": "1.6.0",
+        "date": "2026-08-15",
+        "relatedIds": [
+          "accounts",
+          "settings",
+          "logs"
+        ],
+        "title": "Easier window controls, fewer lost edits",
+        "notes": [
+          "Escape closes Settings, Logs and Account Manager. Their toolbar icons also close a window that is already open.",
+          "Account Manager asks before discarding unsaved profile changes.",
+          "The Log window opens at a more usable size. The About window can no longer disappear behind a blocked launcher through minimization."
+        ]
+      },
+      {
+        "version": "1.5.0",
+        "date": "2026-08-14",
+        "relatedIds": [
+          "settings",
+          "accounts"
+        ],
+        "title": "Your launcher, your colors",
+        "notes": [
+          "Choose from six themes: Crossfire Red, Blue, Petrol, Green, Orange and Pink. Your selection applies immediately and survives a restart.",
+          "Settings and Account Manager are more usable at larger UI scales. Content and important controls are no longer cut off at window edges.",
+          "Buttons and dialogs render more smoothly and consistently."
+        ]
+      },
+      {
+        "version": "1.4.0",
+        "date": "2026-08-10",
+        "relatedIds": [
+          "logs"
+        ],
+        "title": "Read logs without losing your place",
+        "notes": [
+          "The Log window remains more responsive with many entries. Scrolling up to read pauses automatic following of new entries.",
+          "Enable Verbose logging in Settings; the setting survives a restart. Information about each launcher session helps with diagnosis.",
+          "Fatal launcher errors are written immediately to the log file so important information can survive a crash."
+        ]
+      },
+      {
+        "version": "1.3.0",
+        "date": "2026-07-09",
+        "relatedIds": [
+          "support-package",
+          "crash-dumps",
+          "updates"
+        ],
+        "title": "Better prepared for community support",
+        "notes": [
+          "Create a ZIP of diagnostic information for an issue report from the Log window.",
+          "Experimental game crash capture is optional and disabled by default. Enable it in Settings when needed.",
+          "If the launcher is outside the required EXE folder, it shows a clear message before launch."
+        ]
+      },
+      {
+        "version": "1.2.0",
+        "date": "2026-07-09",
+        "relatedIds": [
+          "updates",
+          "logs"
+        ],
+        "title": "Smoother updates and persistent logs",
+        "notes": [
+          "Downloads are verified while being transferred. Progress reporting stays more responsive with many small files.",
+          "A persistent log file supports troubleshooting after a session and rotates as it grows. Pending log entries are saved when the launcher closes."
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "date": "2026-07-08",
+        "relatedIds": [
+          "offline",
+          "updates"
+        ],
+        "title": "Single Player remains available offline",
+        "notes": [
+          "The launcher detects connection loss and shows an offline screen. Single Player remains available; Multiplayer requires a connection.",
+          "When the network becomes available again, the launcher attempts to reconnect. Retry lets you try manually.",
+          "Single Player game updates can be postponed before launch. A badge reminds you of a deferred launcher update, and an already running instance is clearly reported."
+        ]
+      },
+      {
+        "version": "0.9.1",
+        "date": "2026-03-10",
+        "relatedIds": [
+          "settings"
+        ],
+        "title": "Keep your settings and choose more easily",
+        "notes": [
+          "Cursor and particle-color choices display previews. Saved settings are no longer reset after restarting the launcher.",
+          "The About window displays the launcher version, making it easier to include in support requests."
+        ]
+      }
+    ]
+  }
 }

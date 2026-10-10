@@ -23,6 +23,7 @@ Open `http://127.0.0.1:4173/crossfire-launcher/de/` or `/crossfire-launcher/en/`
 - `/de/help/`, `/en/help/`: guided troubleshooting and bug report template.
 - `/de/features/`, `/en/features/`: feature overview with eight dedicated explanations.
 - `/de/features/<topic>/`, `/en/features/<topic>/`: updates, accounts, settings, offline, logs, crash-dumps support-package and command-line.
+- `/de/history/`, `/en/history/`: curated launcher history with player-facing notes and links to feature guides.
 - `/guide/`: compatible English guide, including the former `#h1` through `#h4` links.
 
 All asset and internal links are relative, supporting repository-based GitHub Pages paths. The `.nojekyll` file is retained. Generated HTML pages are committed alongside the sources so GitHub Pages can serve this repository directly.
@@ -65,4 +66,4 @@ Publishing is a separate step. Before publishing, run build and tests and config
 
 ## Feature content and screenshots
 
-Feature detail pages reuse the corresponding article sections and add translated workflows in featurePages. launcherShots provides filenames, dimensions, translated captions and confirmed version or owner credit. sectionShots maps captures to the relevant section. Assets are stored in assets/images/screenshots/. Add verified captures to both content files and regenerate HTML. Search sends feature results directly to their detail page; installation results retain their guide anchor. Tests validate models, image headers, both languages and all 26 localized pages.
+Feature detail pages reuse the corresponding article sections and add translated workflows in featurePages. launcherShots provides filenames, dimensions, translated captions and confirmed version or owner credit. sectionShots maps captures to the relevant section. Assets are stored in assets/images/screenshots/. Add verified captures to both content files and regenerate HTML. Search sends feature results directly to their detail page; installation results retain their guide anchor. Tests validate models, image headers, both languages and all 28 localized pages.

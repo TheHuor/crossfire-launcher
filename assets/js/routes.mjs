@@ -7,6 +7,6 @@ export function resolveLocale(savedLocale,browserLanguages=[]){
 }
 export function localizedRoute(locale,pageId,anchor=''){
  const lang=locales.includes(locale)?locale:'en';
- const page=['start','guide','help','features',...featureIds.map(id=>'features/'+id)].includes(pageId)?`${pageId}/`:'';
+ const page=['start','guide','help','features','history',...featureIds.map(id=>'features/'+id)].includes(pageId)?`${pageId}/`:'';
  return `${lang}/${page}${anchor?'#'+encodeURIComponent(anchor.replace(/^#/,'')):''}`;
 }

@@ -113,7 +113,15 @@
     "workflow": "Schritt für Schritt",
     "screenshotVersion": "Aufnahme aus Launcher-Version",
     "functionsLink": "Funktionen mit Bildern erkunden",
-    "windowsHelpSources": "Windows-Hinweise bei Microsoft"
+    "windowsHelpSources": "Windows-Hinweise bei Microsoft",
+    "history": "Chronik",
+    "historyTitle": "Launcher-Updates",
+    "historyIntro": "Was sich auf deinem Weg ins Crossfire-Universum verbessert hat – verständlich zusammengefasst für Spieler und Community.",
+    "historyLatest": "Neuester Eintrag",
+    "historyVersionNav": "Version auswählen",
+    "historySource": "Redaktionell zusammengefasst aus der CHANGELOG.md des Crossfire Game Launcher. Versionen und Datumsangaben folgen dieser dokumentierten History; sie zeigen nicht deine installierte Version. Rein interne Entwickleränderungen sind ausgelassen.",
+    "historyScope": "Diese Chronik beschreibt den Launcher. Änderungen an Missionen, Schiffen oder Multiplayer-Spielinhalten gehören zu den Crossfire-Spielupdates.",
+    "historyLink": "Zur Launcher-Chronik"
   },
   "links": {
     "download": "https://swat-portal.com/forum/filebase/file/1098-crossfire-2-0-client-edition/",
@@ -1284,5 +1292,161 @@
       "alt": "Offline-Ansicht: No connection to server mit Retry; Single Player verfügbar und Multiplayer deaktiviert.",
       "caption": "Offline: Verbindung zum Server fehlt. Retry versucht die Verbindung erneut; Multiplayer ist deaktiviert."
     }
-  ]
+  ],
+  "history": {
+    "entries": [
+      {
+        "version": "1.7.3",
+        "date": "2026-10-05",
+        "relatedIds": [
+          "updates",
+          "logs"
+        ],
+        "title": "Update-Probleme besser erkennen",
+        "notes": [
+          "Fehlermeldungen nennen die betroffene Datei. Wenn ein anderes Programm sie offen hält, kann der Launcher dieses im Log anzeigen – so lässt sich die Ursache gezielter eingrenzen.",
+          "Fehlgeschlagene Dateilöschungen werden nicht mehr als erfolgreich gemeldet. Das macht Update-Probleme nachvollziehbarer."
+        ]
+      },
+      {
+        "version": "1.7.2",
+        "date": "2026-09-13",
+        "relatedIds": [
+          "updates"
+        ],
+        "title": "Schneller auf dem Weg ins Spiel",
+        "notes": [
+          "Die Vorbereitung des Spielstarts arbeitet effizienter. In den dokumentierten Tests profitierten besonders klassische Festplatten; der Gewinn hängt von deinem System ab.",
+          "Spieloptionen werden zuverlässiger angewendet. Eine während der Vorbereitung verschwundene Datei oder ein verschwundener Ordner bricht den gesamten Start nicht mehr ab.",
+          "Beim Wechsel von einem anderen Programm zum Launcher bleibt der Fensterschatten an der richtigen Stelle."
+        ]
+      },
+      {
+        "version": "1.7.1",
+        "date": "2026-08-30",
+        "relatedIds": [
+          "logs",
+          "crash-dumps"
+        ],
+        "title": "Weniger Fehlalarme nach dem Spielen",
+        "notes": [
+          "Ein bestimmter normaler Freelancer-Spielabschluss wird nicht mehr fälschlich als Absturz behandelt. Echte Abstürze werden weiterhin erfasst, wenn die Erfassung aktiviert ist.",
+          "Normale Diagnoseprotokolle zeigen weniger interne Dateipfade. Warnungen und Fehler behalten die für die Fehlersuche nötigen Angaben."
+        ]
+      },
+      {
+        "version": "1.7.0",
+        "date": "2026-08-30",
+        "relatedIds": [
+          "crash-dumps",
+          "support-package",
+          "offline",
+          "accounts"
+        ],
+        "title": "Klarere Bedienung und bessere Hilfe bei Abstürzen",
+        "notes": [
+          "Bei aktivierter Absturzerfassung zeigt ein eigenes Statusfenster den Fortschritt und mögliche Fehler. Nach erfolgreicher Erfassung kannst du ein Support-Paket erstellen.",
+          "Die Anzahl aufbewahrter Crash-Dumps ist einstellbar. Support-Pakete enthalten zusätzliche Windows-Fehlerinformationen; Account-Daten bleiben ausgeschlossen.",
+          "Dialoge und Auswahlzustände sind klarer lesbar. Im Account Manager werden Profilaktionen und vollständige Sicherungen deutlicher getrennt.",
+          "Die Offline-Ansicht erklärt den Verbindungsbedarf für Multiplayer und lässt Singleplayer verfügbar. Ein normaler Doppelklick beendet ein gerade gestartetes Update nicht mehr sofort wieder."
+        ]
+      },
+      {
+        "version": "1.6.0",
+        "date": "2026-08-15",
+        "relatedIds": [
+          "accounts",
+          "settings",
+          "logs"
+        ],
+        "title": "Fenster leichter bedienen, Änderungen bewahren",
+        "notes": [
+          "Escape schließt Einstellungen, Logs und Account Manager. Die Werkzeugleistensymbole schließen ein bereits geöffnetes Fenster ebenfalls.",
+          "Der Account Manager fragt nach, bevor ungespeicherte Profiländerungen verworfen werden.",
+          "Das Log-Fenster öffnet sich in einer besser nutzbaren Größe. Das Infofenster kann nicht mehr durch Minimieren hinter einem blockierten Launcher verschwinden."
+        ]
+      },
+      {
+        "version": "1.5.0",
+        "date": "2026-08-14",
+        "relatedIds": [
+          "settings",
+          "accounts"
+        ],
+        "title": "Dein Launcher, deine Farben",
+        "notes": [
+          "Sechs Themes stehen zur Auswahl: Crossfire Red, Blue, Petrol, Green, Orange und Pink. Die Auswahl wirkt sofort und bleibt nach einem Neustart erhalten.",
+          "Einstellungen und Account Manager sind bei größerer UI-Skalierung besser nutzbar. Inhalte und wichtige Bedienelemente werden nicht mehr am Fensterrand abgeschnitten.",
+          "Schaltflächen und Dialoge werden flüssiger und einheitlicher dargestellt."
+        ]
+      },
+      {
+        "version": "1.4.0",
+        "date": "2026-08-10",
+        "relatedIds": [
+          "logs"
+        ],
+        "title": "Logs lesen, ohne den Überblick zu verlieren",
+        "notes": [
+          "Das Log-Fenster bleibt auch bei vielen Einträgen besser bedienbar. Beim Hochscrollen zum Lesen pausiert das automatische Nachführen neuer Einträge.",
+          "Verbose logging lässt sich in den Einstellungen aktivieren und bleibt nach einem Neustart gespeichert. Angaben zum jeweiligen Launcher-Start erleichtern die Diagnose.",
+          "Schwere Launcher-Fehler werden unmittelbar in die Log-Datei geschrieben, damit wichtige Informationen bei einem Absturz erhalten bleiben."
+        ]
+      },
+      {
+        "version": "1.3.0",
+        "date": "2026-07-09",
+        "relatedIds": [
+          "support-package",
+          "crash-dumps",
+          "updates"
+        ],
+        "title": "Besser vorbereitet zum Community-Support",
+        "notes": [
+          "Im Log-Fenster kannst du ein ZIP mit Diagnoseinformationen für einen Fehlerbericht erstellen.",
+          "Die experimentelle Erfassung von Spielabstürzen ist optional und zunächst deaktiviert. Du kannst sie bei Bedarf in den Einstellungen einschalten.",
+          "Liegt der Launcher außerhalb des erforderlichen EXE-Ordners, zeigt er vor dem Start einen verständlichen Hinweis."
+        ]
+      },
+      {
+        "version": "1.2.0",
+        "date": "2026-07-09",
+        "relatedIds": [
+          "updates",
+          "logs"
+        ],
+        "title": "Flüssigere Updates, dauerhaft verfügbare Logs",
+        "notes": [
+          "Downloads werden während der Übertragung geprüft. Die Fortschrittsanzeige bleibt bei vielen kleinen Dateien besser bedienbar.",
+          "Die Log-Datei bleibt für die spätere Fehlersuche erhalten und wird bei wachsender Größe rotiert. Beim Schließen werden noch ausstehende Log-Einträge gespeichert."
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "date": "2026-07-08",
+        "relatedIds": [
+          "offline",
+          "updates"
+        ],
+        "title": "Singleplayer bleibt auch offline erreichbar",
+        "notes": [
+          "Der Launcher erkennt Verbindungsverlust und zeigt eine Offline-Ansicht. Singleplayer bleibt verfügbar; Multiplayer benötigt eine Verbindung.",
+          "Sobald das Netzwerk wieder verfügbar ist, versucht der Launcher die Verbindung erneut. Retry ermöglicht einen manuellen Versuch.",
+          "Singleplayer-Spielupdates können vor dem Start verschoben werden. Ein Symbol erinnert an ein aufgeschobenes Launcher-Update; eine bereits laufende Instanz wird deutlich gemeldet."
+        ]
+      },
+      {
+        "version": "0.9.1",
+        "date": "2026-03-10",
+        "relatedIds": [
+          "settings"
+        ],
+        "title": "Einstellungen behalten und leichter auswählen",
+        "notes": [
+          "Cursor- und Partikelfarbauswahl zeigen Vorschauen. Gespeicherte Einstellungen werden nach einem Launcher-Neustart nicht mehr zurückgesetzt.",
+          "Die Launcher-Version wird im Infofenster angezeigt und lässt sich bei Support-Anfragen leichter angeben."
+        ]
+      }
+    ]
+  }
 }
