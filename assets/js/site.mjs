@@ -1,5 +1,6 @@
 import {initOnboarding} from './onboarding.mjs';
 import {safeWrite,browserStorage} from './storage.mjs';
+import {initSearch} from './search.mjs';
 const dataNode=document.getElementById('site-data');
 export function initSite(root=document){
  const c=JSON.parse(dataNode.textContent),u=c.ui;
@@ -25,5 +26,6 @@ export function initSite(root=document){
  dialog.querySelector('[data-close-image]').addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>imageTrigger?.focus());
  return c;
 }
-initSite();
+const content=initSite();
 initOnboarding();
+initSearch(document,content.articles,content.locale);
