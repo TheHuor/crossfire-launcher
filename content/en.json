@@ -352,8 +352,9 @@
           "id": "reconnect",
           "heading": "Restore the connection",
           "paragraphs": [
-            "If a network connection is unavailable, the launcher switches to offline mode and offers reconnect retries. Check your connection and use Retry once it is available again.",
-            "The offline display describes the connection state. It does not guarantee that all game modes or updates are available without a connection."
+            "Offline – No connection to server means the launcher has no connection to the server. Check your internet connection. The message alone does not distinguish a local connection issue from an unreachable server.",
+            "Retry attempts to reconnect. Use this button when your connection is available again.",
+            "In this offline screen, Single Player remains available and Multiplayer is disabled. You do not have to install an offered update to play Single Player."
           ]
         },
         {
@@ -971,7 +972,12 @@
           "title": "Document a persistent issue",
           "body": "Record the message and time and save the relevant log entries for support."
         }
-      ]
+      ],
+      "sectionShots": {
+        "reconnect": [
+          "offline"
+        ]
+      }
     },
     {
       "id": "logs",
@@ -1198,6 +1204,15 @@
       "credit": "Screenshot provided by the project owner",
       "alt": "Navigation Error: the launcher must be in the installation EXE folder.",
       "caption": "Navigation Error: correct the installation directory and launch again."
+    },
+    {
+      "id": "offline",
+      "file": "launcher-offline.png",
+      "width": 1140,
+      "height": 894,
+      "credit": "Screenshot provided by the project owner",
+      "alt": "Offline screen: No connection to server with Retry; Single Player available and Multiplayer disabled.",
+      "caption": "Offline: no connection to the server. Retry attempts to reconnect; Multiplayer is disabled."
     }
   ]
 }

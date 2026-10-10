@@ -49,7 +49,7 @@ All guides and external links remain readable without JavaScript. The checklist,
 
 Current installation does not require FLMM. Original Freelancer remains a prerequisite. This website does not distribute Freelancer itself.
 
-The supplied Crossfire artwork is used in the hero. The main launcher view was captured from the installed launcher (file metadata version 1.7.3.0). Settings General/Graphics/Appearance and Logs screenshots were supplied by the project owner; their exact launcher version is not inferred. Account Manager identifiers and the personal backup folder are concealed in privacy-edited images, explicitly labeled as AI-edited. Command-line help, Petrol appearance and launcher dialogs are supplied by the owner. Dialog explanations follow visible labels and owner-confirmed Single Player behavior. A dedicated offline-state screenshot remains pending.
+The supplied Crossfire artwork is used in the hero. The main launcher view was captured from the installed launcher (file metadata version 1.7.3.0). Settings General/Graphics/Appearance and Logs screenshots were supplied by the project owner; their exact launcher version is not inferred. Account Manager identifiers and the personal backup folder are concealed in privacy-edited images, explicitly labeled as AI-edited. Command-line help, Petrol appearance and launcher dialogs are supplied by the owner. Dialog explanations follow visible labels and owner-confirmed Single Player behavior. The offline-state screenshot is supplied by the owner and documents Retry, available Single Player and disabled Multiplayer.
 
 ## Assets
 

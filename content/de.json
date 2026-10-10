@@ -352,8 +352,9 @@
           "id": "reconnect",
           "heading": "Verbindung wiederherstellen",
           "paragraphs": [
-            "Wenn keine Netzwerkverbindung verfügbar ist, wechselt der Launcher in den Offline-Modus und bietet einen erneuten Verbindungsversuch an. Prüfe deine Verbindung und verwende Retry, wenn sie wieder verfügbar ist.",
-            "Die Offline-Anzeige beschreibt den Verbindungszustand. Sie garantiert nicht, dass alle Spielmodi oder Updates ohne Verbindung verfügbar sind."
+            "Offline – No connection to server bedeutet, dass der Launcher keine Verbindung zum Server hat. Prüfe deine Internetverbindung. Die Meldung allein unterscheidet nicht zwischen einer lokalen Verbindungsstörung und einem nicht erreichbaren Server.",
+            "Retry versucht die Verbindung erneut. Nutze die Schaltfläche, sobald die Verbindung wieder verfügbar ist.",
+            "In dieser Offline-Ansicht bleibt Single Player verfügbar; Multiplayer ist deaktiviert. Für Singleplayer musst du ein angebotenes Update nicht durchführen, um zu spielen."
           ]
         },
         {
@@ -971,7 +972,12 @@
           "title": "Eine anhaltende Störung dokumentieren",
           "body": "Notiere Meldung und Zeitpunkt und sichere passende Log-Einträge für den Support."
         }
-      ]
+      ],
+      "sectionShots": {
+        "reconnect": [
+          "offline"
+        ]
+      }
     },
     {
       "id": "logs",
@@ -1198,6 +1204,15 @@
       "credit": "Vom Projektinhaber bereitgestellte Aufnahme",
       "alt": "Navigation Error: Der Launcher muss im EXE-Ordner der Installation liegen.",
       "caption": "Navigation Error: Installationsverzeichnis korrigieren und erneut starten."
+    },
+    {
+      "id": "offline",
+      "file": "launcher-offline.png",
+      "width": 1140,
+      "height": 894,
+      "credit": "Vom Projektinhaber bereitgestellte Aufnahme",
+      "alt": "Offline-Ansicht: No connection to server mit Retry; Single Player verfügbar und Multiplayer deaktiviert.",
+      "caption": "Offline: Verbindung zum Server fehlt. Retry versucht die Verbindung erneut; Multiplayer ist deaktiviert."
     }
   ]
 }
