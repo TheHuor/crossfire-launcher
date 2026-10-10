@@ -17,7 +17,7 @@ export function initSite(root=document){
  });
  window.addEventListener('hashchange',()=>root.querySelectorAll('[data-language]').forEach(a=>{a.href=a.href.split('#')[0]+location.hash;}));
  const panels=[...root.querySelectorAll('[data-feature-panel]')],featureLinks=[...root.querySelectorAll('[data-feature]')];
- const selectFeature=id=>{panels.forEach(p=>p.hidden=p.dataset.featurePanel!==id);featureLinks.forEach(a=>{if(a.dataset.feature===id)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current');});};
+ const selectFeature=id=>{if(!panels.some(p=>p.dataset.featurePanel===id))id='updates';panels.forEach(p=>p.hidden=p.dataset.featurePanel!==id);featureLinks.forEach(a=>{if(a.dataset.feature===id)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current');});};
  if(panels.length){selectFeature(location.hash.startsWith('#feature-')?location.hash.slice(9):'updates');featureLinks.forEach(a=>a.addEventListener('click',()=>selectFeature(a.dataset.feature)));window.addEventListener('hashchange',()=>{if(location.hash.startsWith('#feature-'))selectFeature(location.hash.slice(9));});}
  const dialog=root.querySelector('.image-dialog');let imageTrigger=null;
  root.querySelectorAll('.hero-art>img,.inline-art>img').forEach(img=>{
@@ -31,3 +31,4 @@ const content=initSite();
 initOnboarding();
 initSearch(document,content.articles,content.locale);
 initSupport(document,content.supportNodes,content.locale);
+

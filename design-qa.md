@@ -18,8 +18,9 @@ Desktop and mobile screenshots and comparison sheets are saved in docs/design. R
 
 Dark charcoal, petrol and red hierarchy follows the selected concept. Local fonts, supplied space artwork and licensed Tabler icons are used. Genuine available images replace the illustrative launcher window; the approved five-step installation flow replaces the reference's four steps.
 
-Verified DE/EN routes, language and anchor retention, search and empty results, checklist persistence/reset, troubleshooting navigation, report copying, image zoom and focus return, mobile menu and Escape. All eight localized routes fit at 320 pixels; desktop, tablet and mobile views were inspected. Browser error log was empty in tested flows. Twelve automated tests cover content, routes, storage, search, support and generated links.
+Verified DE/EN routes, language and anchor retention, search and empty results, checklist persistence/reset, troubleshooting navigation, report copying, image zoom and focus return, mobile menu and Escape. All eight localized routes fit at 320 pixels; desktop, tablet and mobile views were inspected. Browser error log was empty in tested flows. Thirteen automated tests cover content, routes, storage, search, support and generated links.
 
-Static fallback content is verified in generated HTML; JavaScript-disabled browser operation and forced clipboard failure were not exercised.
+A temporary copy with module scripts omitted was verified at 320px: no horizontal overflow, visible navigation, hidden inactive progress controls. Direct #report links preserve their section when switching language. Forced clipboard failure was not exercised. Independent whole-branch review found no Critical issues; one Important and two Minor findings were fixed in a single follow-up pass. Unknown feature hashes now fall back to Updates.
 
 **final result: passed**
+

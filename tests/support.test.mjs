@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';
-import {nextSupportNode,previousSupportNode,formatReport} from '../assets/js/support.mjs';
+import {nextSupportNode,previousSupportNode,formatReport,supportLanguageHash} from '../assets/js/support.mjs';
 const de=JSON.parse(await readFile(new URL('../content/de.json',import.meta.url),'utf8'));
 const en=JSON.parse(await readFile(new URL('../content/en.json',import.meta.url),'utf8'));
 test('every troubleshooting choice reaches its declared node without getting stuck',()=>{
@@ -17,3 +17,11 @@ test('reports use translated fields and keep user-entered diagnostic detail',()=
  assert.match(formatReport(en,{}),/What happened:\nPlease fill in/);
  assert.doesNotMatch(formatReport(en,{}),/Bitte ergänzen/);
 });
+
+test('language switching preserves report sections and assistant nodes',()=>{
+ assert.equal(supportLanguageHash('start','#report',['report','main']),'#report');
+ assert.equal(supportLanguageHash('start','#main',['report','main']),'#main');
+ assert.equal(supportLanguageHash('update','#update',['report','main']),'#update');
+ assert.equal(supportLanguageHash('start','#missing',['report','main']),'');
+});
+

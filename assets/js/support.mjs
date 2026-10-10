@@ -5,10 +5,12 @@ export function nextSupportNode(nodes,currentId,choiceIndex){
 }
 export function previousSupportNode(history){const clean=[...history];return {currentId:clean.pop()||'start',history:clean};}
 export function formatReport(content,answers={}){return content.ui.reportFields.map((field,i)=>`${field}\n${String(answers[i]??content.ui.reportDefault)}`).join('\n\n');}
+export function supportLanguageHash(currentId,hash,sectionIds){return sectionIds.includes(hash.slice(1))?hash:(currentId==='start'?'':'#'+currentId);}
 export function initSupport(root,nodes,locale){
  const host=root.querySelector('.assistant');if(!host)return;
  const content=JSON.parse(root.getElementById('site-data').textContent),u=content.ui,base=root.body.dataset.base;
  const container=host.querySelector('[data-assistant-content]'),back=host.querySelector('[data-assistant-back]');
+ const sectionIds=[...root.querySelectorAll('[id]')].map(el=>el.id);
  let currentId=nodes.some(n=>n.id===location.hash.slice(1))?location.hash.slice(1):'start',visits=[];
  const makeIcon=()=>{const image=root.createElement('img');image.src=base+'assets/icons/arrow-right.svg';image.className='icon';image.alt='';image.setAttribute('aria-hidden','true');return image;};
  const render=(focus=false)=>{
@@ -25,7 +27,7 @@ export function initSupport(root,nodes,locale){
   }
   back.hidden=visits.length===0;
   if(!n.choices.length){const a=root.createElement('a');a.className='text-link';a.href='#report';a.textContent=u.supportTitle;container.append(a);}
-  root.querySelectorAll('[data-language]').forEach(a=>{a.href=a.href.split('#')[0]+(currentId==='start'?'':'#'+currentId);});
+  root.querySelectorAll('[data-language]').forEach(a=>{a.href=a.href.split('#')[0]+supportLanguageHash(currentId,location.hash,sectionIds);});
   if(focus)h.focus({preventScroll:true});
  };
  back.addEventListener('click',()=>{const prior=previousSupportNode(visits);currentId=prior.currentId;visits=prior.history;window.history.replaceState(null,'','#'+currentId);render(true);});
@@ -37,3 +39,4 @@ export function initSupport(root,nodes,locale){
  });
  render();
 }
+
