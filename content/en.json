@@ -103,7 +103,8 @@
       "Enable Verbose logging before retrying, if more detail is needed.",
       "In the launcher, use Log → Support Package... to create the ZIP.",
       "Attach the ZIP in the support forum and describe the reproduction steps."
-    ]
+    ],
+    "forumNote": "Describe your issue in the SWAT support forum. The community can help you there."
   },
   "links": {
     "download": "https://swat-portal.com/forum/filebase/file/1098-crossfire-2-0-client-edition/",

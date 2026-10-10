@@ -4,11 +4,20 @@ import {mkdtemp,readFile,rm,cp,access} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
 import {buildSite} from '../scripts/build.mjs';
+import {renderPage} from '../scripts/templates.mjs';
+test('download retains an accessible name when its text is hidden on mobile',async()=>{
+ const c=JSON.parse(await readFile(new URL('../content/de.json',import.meta.url),'utf8'));
+ const html=renderPage(c,'home','../');
+ const tag=html.match(/<a[^>]*class="header-download"[^>]*>/)[0];
+ assert.match(tag,/aria-label="Crossfire herunterladen"/);
+});
 test('build produces readable bilingual pages with valid links at root and Pages prefix',async()=>{
  const dir=await mkdtemp(path.join(tmpdir(),'cf-build-'));
  try {
   await cp(new URL('../assets',import.meta.url),path.join(dir,'assets'),{recursive:true});
   await buildSite({outputDir:dir});
+  const legacy=await readFile(path.join(dir,'guide/index.html'),'utf8');
+  for(const oldAnchor of ['h1','h2','h3','h4'])assert.ok(legacy.includes(`id="${oldAnchor}"`),`Legacy link #${oldAnchor} no longer resolves`);
   const routes=['','guide/','de/','en/',...['de','en'].flatMap(l=>['start','guide','help'].map(p=>`${l}/${p}/`))];
   for(const route of routes){
    const html=await readFile(path.join(dir,route,'index.html'),'utf8');
