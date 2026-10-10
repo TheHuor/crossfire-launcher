@@ -112,14 +112,17 @@
     "allFunctions": "Alle Funktionen",
     "workflow": "Schritt für Schritt",
     "screenshotVersion": "Aufnahme aus Launcher-Version",
-    "functionsLink": "Funktionen mit Bildern erkunden"
+    "functionsLink": "Funktionen mit Bildern erkunden",
+    "windowsHelpSources": "Windows-Hinweise bei Microsoft"
   },
   "links": {
     "download": "https://swat-portal.com/forum/filebase/file/1098-crossfire-2-0-client-edition/",
     "support": "https://swat-portal.com/forum/board/4-technical-problems/",
     "faq": "https://swat-portal.com/forum/wcf/faq/",
     "community": "https://swat-portal.com/forum/",
-    "project": "https://github.com/TheHuor/crossfire-launcher"
+    "project": "https://github.com/TheHuor/crossfire-launcher",
+    "microsoftSmartScreen": "https://learn.microsoft.com/en-us/windows/apps/package-and-deploy/smartscreen-reputation",
+    "microsoftUac": "https://learn.microsoft.com/en-us/windows/security/application-security/application-control/user-account-control/"
   },
   "pages": [
     "home",
@@ -529,6 +532,55 @@
           ]
         }
       ]
+    },
+    {
+      "id": "windows-startup",
+      "title": "Windows-Hinweise beim ersten Start",
+      "summary": "SmartScreen erkennen und von der Abfrage nach Administratorrechten unterscheiden.",
+      "keywords": [
+        "Windows",
+        "SmartScreen",
+        "Smart Lock",
+        "Smart App Control",
+        "UAC",
+        "Administrator",
+        "admin",
+        "protected",
+        "geschützt",
+        "blocked",
+        "blockiert",
+        "first launch",
+        "erster Start"
+      ],
+      "source": "microsoftSmartScreen",
+      "sections": [
+        {
+          "id": "windows-smartscreen",
+          "heading": "„Der Computer wurde durch Windows geschützt“",
+          "paragraphs": [
+            "Das ist Microsoft Defender SmartScreen. Windows kann eine heruntergeladene App als unbekannt einstufen, auch beim ersten Start oder nach einer neuen Version. Die Meldung betrifft die Reputation der Datei und ist keine UAC-Abfrage nach Administratorrechten.",
+            "Prüfe zuerst die Herkunft: Crossfire stammt von der offiziellen Download-Seite; der neue Launcher wird über den vorhandenen Launcher heruntergeladen. „Weitere Informationen“ zeigt zusätzliche Angaben zur App.",
+            "Wenn du die Herkunft geprüft hast und der Datei vertraust, kannst du selbst entscheiden, ob du die gegebenenfalls angebotene Schaltfläche „Trotzdem ausführen“ nutzt. Bei Zweifel wähle „Nicht ausführen“ und frage im offiziellen Support nach. Die Meldung allein belegt weder Sicherheit noch Schadsoftware."
+          ]
+        },
+        {
+          "id": "windows-uac",
+          "heading": "UAC: Änderungen am Gerät zulassen?",
+          "paragraphs": [
+            "„Möchten Sie zulassen, dass durch diese App Änderungen an Ihrem Gerät vorgenommen werden?“ ist eine andere Meldung: die Benutzerkontensteuerung (UAC). Sie fragt nach erhöhten Rechten und kann erscheinen, wenn ein Programm diese anfordert – auch wenn du nicht selbst „Als Administrator ausführen“ gewählt hast.",
+            "Prüfe den angezeigten Programmnamen, Herausgeber und die Details, bevor du entscheidest. Eine UAC-Abfrage ist keine Bestätigung, dass eine Datei sicher ist. Für den Launcher ist hier keine allgemeine Pflicht zum Administratorstart dokumentiert.",
+            "Falls eine unerwartete Abfrage erscheint, notiere, ob sie beim Launcher-Start, Update oder Spielstart auftritt. Diese Angaben und der genaue Wortlaut helfen dem Support, den Auslöser zu bestimmen."
+          ]
+        },
+        {
+          "id": "windows-other-block",
+          "heading": "Wenn Windows den Start weiterhin blockiert",
+          "paragraphs": [
+            "Smart App Control ist eine andere Windows-Schutzfunktion als SmartScreen. Wenn diese Bezeichnung im Hinweis steht oder keine Fortsetzen-Option verfügbar ist, notiere die Meldung und wende dich an den Support beziehungsweise bei einem verwalteten Gerät an die zuständige IT.",
+            "Lass die Windows-Schutzfunktionen aktiviert. Zur Diagnose sind Windows-Version, Launcher-Version, Dateiname und der Zeitpunkt der Meldung hilfreich."
+          ]
+        }
+      ]
     }
   ],
   "onboardingSteps": [
@@ -690,6 +742,10 @@
       "body": "Prüfe, ob die Crossfire-Installation abgeschlossen ist und ob du den vorhandenen Launcher gestartet hast. Notiere eine angezeigte Fehlermeldung genau. Bei Navigation Error muss der Launcher im EXE-Ordner der Crossfire-Installation liegen. Bei Launch Control Active verwende die bereits laufende Instanz.",
       "choices": [
         {
+          "label": "Windows schützt den Computer oder fragt nach Rechten",
+          "nextId": "windows-prompt"
+        },
+        {
           "label": "Ich möchte den Installationsweg prüfen",
           "nextId": "install"
         },
@@ -832,6 +888,20 @@
         "logs",
         "crash-dumps",
         "support-package"
+      ]
+    },
+    {
+      "id": "windows-prompt",
+      "title": "Windows-Hinweis richtig zuordnen",
+      "body": "„Der Computer wurde durch Windows geschützt“ ist SmartScreen. „Änderungen an Ihrem Gerät“ ist UAC. Lies den Abschnitt unten und prüfe die angezeigten App-Details.",
+      "choices": [
+        {
+          "label": "Der Start bleibt blockiert",
+          "nextId": "unavailable"
+        }
+      ],
+      "articleIds": [
+        "windows-startup"
       ]
     }
   ],

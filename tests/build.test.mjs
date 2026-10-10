@@ -5,6 +5,14 @@ import {tmpdir} from 'node:os';
 import path from 'node:path';
 import {buildSite} from '../scripts/build.mjs';
 import {renderPage} from '../scripts/templates.mjs';
+test('support node anchors do not collide with static help sections',async()=>{
+ for(const locale of ['de','en']){
+  const c=JSON.parse(await readFile(new URL('../content/'+locale+'.json',import.meta.url),'utf8'));
+  const html=renderPage(c,'help','../../');
+  const staticIds=[...html.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]);
+  for(const node of c.supportNodes)assert.ok(!staticIds.includes(node.id),`Support node ${node.id} conflicts with a static section`);
+ }
+});
 test('download retains an accessible name when its text is hidden on mobile',async()=>{
  const c=JSON.parse(await readFile(new URL('../content/de.json',import.meta.url),'utf8'));
  const html=renderPage(c,'home','../');

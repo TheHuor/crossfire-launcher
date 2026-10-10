@@ -112,14 +112,17 @@
     "allFunctions": "All features",
     "workflow": "Step by step",
     "screenshotVersion": "Captured in launcher version",
-    "functionsLink": "Explore features with images"
+    "functionsLink": "Explore features with images",
+    "windowsHelpSources": "Windows guidance from Microsoft"
   },
   "links": {
     "download": "https://swat-portal.com/forum/filebase/file/1098-crossfire-2-0-client-edition/",
     "support": "https://swat-portal.com/forum/board/4-technical-problems/",
     "faq": "https://swat-portal.com/forum/wcf/faq/",
     "community": "https://swat-portal.com/forum/",
-    "project": "https://github.com/TheHuor/crossfire-launcher"
+    "project": "https://github.com/TheHuor/crossfire-launcher",
+    "microsoftSmartScreen": "https://learn.microsoft.com/en-us/windows/apps/package-and-deploy/smartscreen-reputation",
+    "microsoftUac": "https://learn.microsoft.com/en-us/windows/security/application-security/application-control/user-account-control/"
   },
   "pages": [
     "home",
@@ -529,6 +532,55 @@
           ]
         }
       ]
+    },
+    {
+      "id": "windows-startup",
+      "title": "Windows prompts on first launch",
+      "summary": "Recognize SmartScreen and distinguish it from a request for administrator permissions.",
+      "keywords": [
+        "Windows",
+        "SmartScreen",
+        "Smart Lock",
+        "Smart App Control",
+        "UAC",
+        "Administrator",
+        "admin",
+        "protected",
+        "geschützt",
+        "blocked",
+        "blockiert",
+        "first launch",
+        "erster Start"
+      ],
+      "source": "microsoftSmartScreen",
+      "sections": [
+        {
+          "id": "windows-smartscreen",
+          "heading": "“Windows protected your PC”",
+          "paragraphs": [
+            "This is Microsoft Defender SmartScreen. Windows may treat a downloaded app as unrecognized on its first launch or after a new version. This warning concerns file reputation; it is not a UAC request for administrator permissions.",
+            "Check the source first: Crossfire comes from the official download page; the new launcher is downloaded through the existing launcher. “More info” displays additional app details.",
+            "After verifying the source and deciding that you trust the file, you can choose whether to use “Run anyway” if Windows offers it. If unsure, choose “Don’t run” and ask in the official support forum. The warning alone proves neither safety nor malware."
+          ]
+        },
+        {
+          "id": "windows-uac",
+          "heading": "UAC: allow changes to your device?",
+          "paragraphs": [
+            "“Do you want to allow this app to make changes to your device?” is a different prompt: User Account Control (UAC). It requests elevated permissions and can appear when a program asks for them, even if you did not select “Run as administrator” yourself.",
+            "Check the displayed app name, publisher and details before deciding. A UAC prompt does not confirm that a file is safe. This guide does not establish a general requirement to launch the launcher as administrator.",
+            "If the prompt is unexpected, note whether it appears during launcher startup, an update or game launch. These details and the exact wording help support identify the trigger."
+          ]
+        },
+        {
+          "id": "windows-other-block",
+          "heading": "If Windows continues to block the app",
+          "paragraphs": [
+            "Smart App Control is a different Windows protection feature from SmartScreen. If that name appears in the message, or no option to continue is available, record the message and contact support or your IT team on a managed device.",
+            "Keep Windows protections enabled. For diagnosis, include your Windows version, launcher version, filename and when the prompt appears."
+          ]
+        }
+      ]
     }
   ],
   "onboardingSteps": [
@@ -690,6 +742,10 @@
       "body": "Check that Crossfire installation has finished and that you started the existing launcher. Record any error message exactly. For Navigation Error, the launcher must be in the EXE folder of the Crossfire installation. For Launch Control Active, use the instance already running.",
       "choices": [
         {
+          "label": "Windows protects the PC or requests permissions",
+          "nextId": "windows-prompt"
+        },
+        {
           "label": "I want to check the installation process",
           "nextId": "install"
         },
@@ -832,6 +888,20 @@
         "logs",
         "crash-dumps",
         "support-package"
+      ]
+    },
+    {
+      "id": "windows-prompt",
+      "title": "Identify the Windows prompt",
+      "body": "“Windows protected your PC” is SmartScreen. “Make changes to your device” is UAC. Read the section below and check the displayed app details.",
+      "choices": [
+        {
+          "label": "Launch is still blocked",
+          "nextId": "unavailable"
+        }
+      ],
+      "articleIds": [
+        "windows-startup"
       ]
     }
   ],

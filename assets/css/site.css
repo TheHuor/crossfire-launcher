@@ -37,3 +37,4 @@
 .launcher-shot>img,.launcher-shot .image-open img{max-height:700px}
 
 .workflow-steps{grid-template-columns:minmax(0,1fr)}.workflow-steps li>div{min-width:0}.function-article{overflow-wrap:anywhere}
+.windows-help>section{max-width:78ch;margin-top:32px}
