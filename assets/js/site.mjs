@@ -1,3 +1,5 @@
+import {initOnboarding} from './onboarding.mjs';
+import {safeWrite,browserStorage} from './storage.mjs';
 const dataNode=document.getElementById('site-data');
 export function initSite(root=document){
  const c=JSON.parse(dataNode.textContent),u=c.ui;
@@ -9,7 +11,7 @@ export function initSite(root=document){
  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
  root.querySelectorAll('[data-language]').forEach(a=>{
   a.href=a.href.split('#')[0]+location.hash;
-  a.addEventListener('click',()=>{try{localStorage.setItem('cf-site-language',JSON.stringify(a.dataset.language));}catch{}});
+  a.addEventListener('click',()=>{safeWrite(browserStorage(),'cf-site-language',a.dataset.language);});
  });
  window.addEventListener('hashchange',()=>root.querySelectorAll('[data-language]').forEach(a=>{a.href=a.href.split('#')[0]+location.hash;}));
  const panels=[...root.querySelectorAll('[data-feature-panel]')],featureLinks=[...root.querySelectorAll('[data-feature]')];
@@ -24,3 +26,4 @@ export function initSite(root=document){
  return c;
 }
 initSite();
+initOnboarding();
