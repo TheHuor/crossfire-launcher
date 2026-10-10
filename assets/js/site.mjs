@@ -1,6 +1,7 @@
 import {initOnboarding} from './onboarding.mjs';
 import {safeWrite,browserStorage} from './storage.mjs';
 import {initSearch} from './search.mjs';
+import {initSupport} from './support.mjs';
 const dataNode=document.getElementById('site-data');
 export function initSite(root=document){
  const c=JSON.parse(dataNode.textContent),u=c.ui;
@@ -29,3 +30,4 @@ export function initSite(root=document){
 const content=initSite();
 initOnboarding();
 initSearch(document,content.articles,content.locale);
+initSupport(document,content.supportNodes,content.locale);
