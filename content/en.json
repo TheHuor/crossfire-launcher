@@ -259,7 +259,10 @@
         "character names",
         "signature",
         "sortieren",
-        "reorder"
+        "reorder",
+        "DigitalProductId",
+        "new account",
+        "Account erstellen"
       ],
       "sections": [
         {
@@ -329,6 +332,17 @@
             "Delete is disabled for the active account. Activate another account before removing it from the local list. Removing an entry is not a substitute for backing up its old ID.",
             "“Saving accounts failed” appears in the log. Check the reported path, available disk space and write access. Save again before closing the manager; changes are not reliably stored when saving fails.",
             "For “Unable to retrieve pilot records” or damaged account-file messages, preserve the existing files and use a known intact backup. If backup fails, also check the destination folder and network or cloud-folder availability. For further help, share the error and diagnostic package, but do not publicly share account IDs, signatures or account backups."
+          ]
+        },
+        {
+          "id": "account-digitalproductid",
+          "heading": "DigitalProductId missing when creating an account",
+          "paragraphs": [
+            "Add may show “Could not generate a new account ID” followed by “DigitalProductId not found in either registry view.” The launcher needs this Windows registry value to generate a new Multiplayer account ID. This is a Windows value, rather than your Freelancer account installation key.",
+            "First check the launcher version and update to at least 1.7.6. That version checks both registry views, fixing the earlier case where a 32-bit launcher missed a value present only in the 64-bit view. If the value is genuinely absent from both views, the message can still occur.",
+            "If you already have an account, import it from ADF, FLIDs.ini or the current registry, or restore an existing account backup. These paths do not generate a new account ID and do not require DigitalProductId for that operation. Preserve your existing identifiers and backups.",
+            "If the message persists with the current launcher, check the specific log error and ask Windows support or an administrator to investigate the Windows installation. Reinstalling Freelancer or Crossfire does not specifically restore this Windows value. Do not invent a registry value or copy one from another computer.",
+            "For a damaged Windows installation, Windows repair and, if necessary, reinstalling Windows are possible last options. A missing DigitalProductId alone does not establish that reinstalling is the only solution, and repair is not a guaranteed fix for this specific value. Back up personal files and account data first. Microsoft explains supported recovery options: https://support.microsoft.com/en-us/windows/experience/backup-recovery/recovery-options-in-windows"
           ]
         },
         {
