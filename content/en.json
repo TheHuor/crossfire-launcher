@@ -249,7 +249,17 @@
         "import",
         "export",
         "konto",
-        "konten"
+        "konten",
+        "ADF",
+        "FLIDs",
+        "Registry",
+        "Display name",
+        "Notes",
+        "Charakternamen",
+        "character names",
+        "signature",
+        "sortieren",
+        "reorder"
       ],
       "sections": [
         {
@@ -260,6 +270,65 @@
             "Add adds a profile. Select a profile, edit Display name and Notes, then confirm with Save changes. Notes can help you identify the associated characters.",
             "Activate selected selects the highlighted profile. Import provides import options; the arrows control profile order. Delete removes a profile – back up important account data first.",
             "The current installation ID appears at the top. Account name and Account Signature appear on the right, alongside Verify Signature and Regenerate Signature. Real identifiers are concealed in this image. Keep them out of public screenshots."
+          ]
+        },
+        {
+          "id": "account-organize",
+          "heading": "Display names, character names and list order",
+          "paragraphs": [
+            "Select an account and give it a recognizable Display name, such as “Main account – Trader” or “Clan – Escort”. This is a local label; it changes neither the account ID nor in-game character names.",
+            "Use Notes to record the characters belonging to that account, for example “Orion – Freighter; Vega – Fighter”. Add roles or other reminders if useful. You maintain these notes yourself; the launcher does not retrieve them automatically from the game.",
+            "Select an entry and use the arrows beside the list to move it up or down one position. Keep frequently used accounts near the top. The corresponding arrow is disabled at the beginning or end of the list.",
+            "Click Save changes after editing names, notes or order. Add, Delete and Import also require saving. Closing the manager with unsaved changes prompts you to confirm."
+          ]
+        },
+        {
+          "id": "account-import-adf",
+          "heading": "Import accounts from ADF",
+          "paragraphs": [
+            "Open the Import menu, choose ADF import and select your existing Account Data File (.adf). Renaming an unrelated file does not turn it into a valid ADF file.",
+            "The importer reads display names, account IDs, signatures and existing comments as Notes. Use a complete original file: account ID and signature are required; incomplete records are not imported.",
+            "The result dialog reports accounts found, new accounts added and duplicates skipped. An entry with the same ID and signature as a saved account is skipped. Existing names and notes are not updated by the import.",
+            "Review the imported profiles, adjust their names and notes and click Save changes. Only Activate selected makes the chosen profile the current Multiplayer account."
+          ]
+        },
+        {
+          "id": "account-import-flids",
+          "heading": "Import accounts from FLIDs.ini",
+          "paragraphs": [
+            "Choose FLID Changer import from the Import menu and select your existing FLIDs.ini (.ini). Use the FLID Changer account file, rather than an unrelated Crossfire configuration file.",
+            "The importer reads account sections containing INSTALL, MAN and MANS. All three values must be present and non-empty. The section name becomes the initial display name; DISC becomes Notes. Rename a technical label such as FLID_1 to something meaningful afterwards.",
+            "Existing accounts remain in the list. Entries matching a saved account ID and signature are skipped. Review the import statistics and click Save changes. Importing alone does not switch your active account."
+          ]
+        },
+        {
+          "id": "account-import-registry",
+          "heading": "Import the current registry account",
+          "paragraphs": [
+            "Choose the current registry account option from the Import menu. The launcher reads the Freelancer Multiplayer account currently registered for this Windows user. It does not import every account you have used in the past.",
+            "If that account ID is already listed, the existing profile is selected. Otherwise a profile is added with an automatic name and the available signature. Set a meaningful Display name, record character names in Notes and click Save changes.",
+            "Importing and activating are separate actions. Activate selected writes the selected profile’s ID and signature to the registry. Prefer switching with the game closed. If Freelancer is running, the launcher warns that you must be at the server selection screen; do not switch during an active play session."
+          ]
+        },
+        {
+          "id": "account-import-errors",
+          "heading": "Understand and resolve import messages",
+          "paragraphs": [
+            "“No valid accounts found”: the file contains no readable complete accounts. Check the import source and use an intact original file. ADF requires an ID and signature; FLIDs.ini also requires INSTALL. Changing the file extension does not repair missing data.",
+            "“All … account(s) … already exist”: every recognized account is already saved. This is not a failed import. Check the existing entries; their notes and names are not overwritten.",
+            "“Failed to import accounts from ADF/FLIDs file”: read the specific detail in the dialog and log. Select the file again if it has moved. For access problems, use a readable local copy; for damaged data, use an intact original or backup. Canceling the file picker is not an error.",
+            "“No account detected …” during registry import: no current account ID was found for this Windows user, or reading the registry failed. Try Reload and check the log for “Could not read the account name from registry”. Use an existing account file or backup if no ID is present. Add creates a new identity; it does not recover an old account."
+          ]
+        },
+        {
+          "id": "account-operation-errors",
+          "heading": "Activation, signatures and save errors",
+          "paragraphs": [
+            "“Could not write account to the registry”: activation failed. Check the selected entry and the specific error in the log. For access errors, check permissions on the affected registry entry; for a missing ID or signature, use complete original data. Retry after addressing the cause.",
+            "“Account name is empty”: the technical account ID is missing, rather than the Display name. Recover the correct ID from your backup. “Signature mismatch” means the ID and signature do not match. Verify the ID first; Regenerate Signature can then calculate its matching signature. Save afterwards. A valid signature does not confirm that your characters exist on a server.",
+            "Delete is disabled for the active account. Activate another account before removing it from the local list. Removing an entry is not a substitute for backing up its old ID.",
+            "“Saving accounts failed” appears in the log. Check the reported path, available disk space and write access. Save again before closing the manager; changes are not reliably stored when saving fails.",
+            "For “Unable to retrieve pilot records” or damaged account-file messages, preserve the existing files and use a known intact backup. If backup fails, also check the destination folder and network or cloud-folder availability. For further help, share the error and diagnostic package, but do not publicly share account IDs, signatures or account backups."
           ]
         },
         {
@@ -956,27 +1025,28 @@
       "id": "accounts",
       "icon": "user",
       "relatedIds": [
-        "updates",
-        "support-package"
+        "logs",
+        "support-package",
+        "updates"
       ],
       "shots": [],
       "workflowTitle": "Use the account profile you want",
       "steps": [
         {
-          "title": "Open Account Manager",
-          "body": "Open account management using the account icon in the top toolbar."
+          "title": "Choose your source",
+          "body": "Import existing accounts from ADF, FLIDs.ini or the current registry. Add creates a new account ID instead."
         },
         {
-          "title": "Check your profile",
-          "body": "Choose the profile you want. Use the add or edit options when you need a different profile."
+          "title": "Name and organize profiles",
+          "body": "Set meaningful Display names, record character names in Notes and arrange profiles with the arrows."
         },
         {
-          "title": "Back up or transfer profiles",
-          "body": "Use Backup, Import or Export for backups and transfers. Keep the resulting files safe."
+          "title": "Save and back up",
+          "body": "Click Save changes and configure a protected backup. Check the log if an operation fails."
         },
         {
-          "title": "Return to the game",
-          "body": "Check the selected profile, then start the game mode you want."
+          "title": "Activate the intended account",
+          "body": "Select the profile and use Activate selected before launching the game. Importing alone does not activate it."
         }
       ],
       "sectionShots": {

@@ -249,7 +249,17 @@
         "import",
         "export",
         "konto",
-        "konten"
+        "konten",
+        "ADF",
+        "FLIDs",
+        "Registry",
+        "Display name",
+        "Notes",
+        "Charakternamen",
+        "character names",
+        "signature",
+        "sortieren",
+        "reorder"
       ],
       "sections": [
         {
@@ -260,6 +270,65 @@
             "Add fügt ein Profil hinzu. Wähle ein Profil, bearbeite Display name und Notes und bestätige mit Save changes. Notizen können dir helfen, die zugehörigen Charaktere zu erkennen.",
             "Activate selected wählt das markierte Profil aus. Import bietet Importoptionen; die Pfeile dienen zur Reihenfolge der Profile. Delete entfernt ein Profil – sichere wichtige Account-Daten vorher.",
             "Die aktuelle Installations-ID wird oben angezeigt. Rechts findest du Account name und Account Signature sowie Verify Signature und Regenerate Signature. Die echten Kennungen sind in dieser Aufnahme verdeckt. Teile sie nicht in öffentlichen Screenshots."
+          ]
+        },
+        {
+          "id": "account-organize",
+          "heading": "Anzeigenamen, Charakternamen und Reihenfolge",
+          "paragraphs": [
+            "Wähle links einen Account und gib ihm unter Display name einen passenden, wiedererkennbaren Namen, etwa „Hauptaccount – Händler“ oder „Clan – Eskorte“. Der Anzeigename ist dein lokales Label; er ändert weder die Account-ID noch die Charakternamen im Spiel.",
+            "Unter Notes kannst du die zugehörigen Charakternamen speichern, beispielsweise „Orion – Frachter; Vega – Jäger“. Ergänze bei Bedarf Rollen oder andere Merkhilfen. Diese Notizen pflegst du selbst; sie werden nicht automatisch aus dem Spiel abgerufen.",
+            "Wähle einen Eintrag und verschiebe ihn mit den Pfeilen rechts neben der Liste jeweils eine Position nach oben oder unten. So ordnest du häufig genutzte Accounts zuerst. Am Anfang beziehungsweise Ende ist der entsprechende Pfeil deaktiviert.",
+            "Klicke nach Änderungen an Name, Notizen oder Reihenfolge auf Save changes. Auch nach Add, Delete und Import sind Änderungen zu speichern. Beim Schließen mit ungespeicherten Änderungen fragt der Launcher nach."
+          ]
+        },
+        {
+          "id": "account-import-adf",
+          "heading": "Accounts aus ADF importieren",
+          "paragraphs": [
+            "Öffne das Import-Menü und wähle den ADF-Import. Wähle deine vorhandene Account Data File mit der Endung .adf. Eine beliebige Datei erhält durch Umbenennen kein gültiges ADF-Format.",
+            "Der Import übernimmt Anzeigenamen, Account-ID, Signatur und vorhandene Kommentare als Notes. Verwende eine vollständige Originaldatei: Der Import benötigt Account-ID und Signatur; unvollständige Datensätze werden nicht übernommen.",
+            "Der Ergebnisdialog nennt gefundene und neu hinzugefügte Accounts sowie übersprungene Duplikate. Ein Account mit derselben ID und Signatur wie ein gespeicherter Eintrag wird übersprungen. Bestehende Namen und Notizen werden dadurch nicht aktualisiert.",
+            "Prüfe die importierten Profile, passe Anzeigenamen und Notizen an und klicke Save changes. Erst Activate selected setzt ein ausgewähltes Profil als aktuellen Multiplayer-Account."
+          ]
+        },
+        {
+          "id": "account-import-flids",
+          "heading": "Accounts aus FLIDs.ini importieren",
+          "paragraphs": [
+            "Wähle im Import-Menü den FLID-Changer-Import und öffne deine vorhandene FLIDs.ini (.ini). Gemeint ist die Account-Datei des FLID Changer, nicht irgendeine Konfigurationsdatei der Crossfire-Installation.",
+            "Der Import liest die Account-Abschnitte mit INSTALL, MAN und MANS. Alle drei Werte müssen vorhanden und nicht leer sein. Der Abschnittsname wird zunächst zum Anzeigenamen; DISC wird als Notiz übernommen. Benenne einen technischen Namen wie FLID_1 anschließend passend um.",
+            "Die vorhandenen Accounts bleiben erhalten; Einträge mit bereits gespeicherter Account-ID und Signatur werden übersprungen. Prüfe die Importstatistik und speichere mit Save changes. Der Import allein wechselt deinen aktiven Account nicht."
+          ]
+        },
+        {
+          "id": "account-import-registry",
+          "heading": "Den aktuellen Account aus der Registry übernehmen",
+          "paragraphs": [
+            "Wähle im Import-Menü die Übernahme des aktuellen Registry-Accounts. Der Launcher liest den derzeit für diesen Windows-Benutzer eingetragenen Freelancer-Multiplayer-Account. Das ist kein Import aller früher verwendeten Accounts.",
+            "Ist diese Account-ID bereits in der Liste, wird das vorhandene Profil ausgewählt. Andernfalls entsteht ein neues Profil mit einem automatisch vergebenen Namen und der vorhandenen Signatur. Gib ihm einen passenden Display name, ergänze Charakternamen unter Notes und bestätige Save changes.",
+            "Import und Aktivierung sind getrennt: Activate selected schreibt die ID und Signatur des ausgewählten Profils in die Registry. Wechsle Accounts vorzugsweise bei geschlossenem Spiel. Läuft Freelancer, weist der Launcher auf den nötigen Serverauswahl-Bildschirm hin; wechsle nicht während einer laufenden Spielsitzung."
+          ]
+        },
+        {
+          "id": "account-import-errors",
+          "heading": "Importmeldungen verstehen und beheben",
+          "paragraphs": [
+            "„No valid accounts found“: Die Datei enthält keine lesbaren vollständigen Accounts. Prüfe die Importquelle und verwende eine intakte Originaldatei. Bei ADF müssen ID und Signatur vorhanden sein; bei FLIDs.ini zusätzlich INSTALL. Eine andere Dateiendung behebt fehlende Daten nicht.",
+            "„All … account(s) … already exist“: Alle erkannten Accounts sind bereits gespeichert. Das ist kein fehlgeschlagener Import. Prüfe die vorhandenen Einträge; der Import überschreibt ihre Notizen und Anzeigenamen nicht.",
+            "„Failed to import accounts from ADF/FLIDs file“: Lies den konkreten Zusatz im Dialog und im Log. Wähle die Datei erneut, falls sie verschoben wurde. Bei Zugriffsproblemen verwende eine lesbare lokale Kopie; bei beschädigten Daten eine intakte Originaldatei oder Sicherung. Abbrechen im Dateidialog ist kein Fehler.",
+            "„No account detected …“ beim Registry-Import: Für diesen Windows-Benutzer wurde keine aktuelle Account-ID gefunden oder die Registry konnte nicht gelesen werden. Prüfe über Reload erneut und suche im Log nach „Could not read the account name from registry“. Verwende eine vorhandene Account-Datei oder Sicherung, wenn dort keine ID vorhanden ist. Add erzeugt eine neue Identität und stellt einen alten Account nicht wieder her."
+          ]
+        },
+        {
+          "id": "account-operation-errors",
+          "heading": "Aktivierung, Signaturen und Speicherfehler",
+          "paragraphs": [
+            "„Could not write account to the registry“: Der Account konnte nicht aktiviert werden. Prüfe den ausgewählten Eintrag und die konkrete Fehlermeldung im Log. Bei einem Zugriffsfehler prüfe die Berechtigung für den betroffenen Registry-Eintrag; bei fehlender ID oder Signatur verwende vollständige Originaldaten. Wiederhole die Aktivierung erst nach Behebung der Ursache.",
+            "„Account name is empty“: Es fehlt die technische Account-ID, nicht der Display name. Verwende die richtige ID aus deiner Sicherung. „Signature mismatch“ bedeutet, dass ID und Signatur nicht zusammenpassen. Prüfe zuerst die ID; erst danach kann Regenerate Signature die passende Signatur berechnen. Speichere anschließend. Eine gültige Signatur bestätigt nicht, dass deine Charaktere auf einem Server vorhanden sind.",
+            "Delete ist beim aktiven Account deaktiviert. Um ihn aus der lokalen Liste zu entfernen, aktiviere zuerst einen anderen Account. Löschen aus dieser Liste ersetzt keine Sicherung der alten ID.",
+            "„Saving accounts failed“ wird im Log gemeldet. Prüfe den genannten Pfad, freien Speicher und Schreibzugriff. Speichere erneut, bevor du den Manager schließt; Änderungen sind bei einem Fehler nicht zuverlässig gesichert.",
+            "Bei „Unable to retrieve pilot records“ oder Meldungen zu einer beschädigten Accounts-Datei bewahre die vorhandenen Dateien auf und verwende eine bekannte intakte Sicherung. Prüfe bei fehlgeschlagenem Backup zusätzlich den Zielordner und die Erreichbarkeit eines Netzwerk- oder Cloud-Ordners. Für weitere Hilfe teile Fehlermeldung und Diagnosepaket, aber keine Account-IDs, Signaturen oder Account-Sicherungen öffentlich."
           ]
         },
         {
@@ -956,27 +1025,28 @@
       "id": "accounts",
       "icon": "user",
       "relatedIds": [
-        "updates",
-        "support-package"
+        "logs",
+        "support-package",
+        "updates"
       ],
       "shots": [],
       "workflowTitle": "Dein gewünschtes Profil verwenden",
       "steps": [
         {
-          "title": "Account Manager öffnen",
-          "body": "Öffne die Account-Verwaltung über das Account-Symbol in der oberen Werkzeugleiste."
+          "title": "Quelle wählen",
+          "body": "Importiere vorhandene Accounts aus ADF, FLIDs.ini oder der aktuellen Registry. Add erzeugt dagegen eine neue Account-ID."
         },
         {
-          "title": "Profil prüfen",
-          "body": "Wähle das gewünschte Profil. Verwende die Funktionen zum Hinzufügen oder Bearbeiten, wenn du ein anderes Profil benötigst."
+          "title": "Profile benennen und ordnen",
+          "body": "Vergib passende Display names, trage Charakternamen in Notes ein und ordne Profile mit den Pfeilen."
         },
         {
-          "title": "Profile sichern oder übertragen",
-          "body": "Nutze Backup, Import oder Export für Sicherung und Übertragung. Bewahre die Dateien sorgfältig auf."
+          "title": "Änderungen speichern und sichern",
+          "body": "Bestätige Save changes und richte eine geschützte Sicherung ein. Prüfe bei Fehlern das Log."
         },
         {
-          "title": "Zum Spielstart zurückkehren",
-          "body": "Prüfe das verwendete Profil und starte anschließend den gewünschten Spielmodus."
+          "title": "Gewünschten Account aktivieren",
+          "body": "Wähle dein Profil und nutze Activate selected vor dem Spielstart. Ein Import allein aktiviert es nicht."
         }
       ],
       "sectionShots": {
