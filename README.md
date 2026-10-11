@@ -42,7 +42,7 @@ Each language has 14 pages: home, installation checklist (`start`), complete gui
 
 Feature topics: `updates`, `accounts`, `settings`, `offline`, `logs`, `crash-dumps`, `support-package`, `command-line`.
 
-Account help covers ADF, FLIDs.ini and current-registry import, display names, character notes, manual ordering, activation, backup and error recovery. Windows startup help distinguishes SmartScreen, UAC and Smart App Control. The curated history currently contains 13 player-facing entries from 0.9.1 through 1.7.5; internal-only 1.1.0 is omitted.
+Account help covers ADF, FLIDs.ini and current-registry import, display names, character notes, manual ordering, activation, backup and error recovery. Windows startup help distinguishes SmartScreen, UAC and Smart App Control. The curated history currently contains 14 player-facing entries from 0.9.1 through 1.7.6; internal-only 1.1.0 is omitted.
 
 The build produces 28 localized pages plus the language entry and legacy guide (30 HTML pages). Relative links support both the web root and the `/crossfire-launcher/` project prefix.
 

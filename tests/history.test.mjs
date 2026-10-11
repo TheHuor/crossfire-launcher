@@ -14,7 +14,7 @@ test('player chronicle is bilingual, ordered and renders every documented entry'
  assert.deepEqual(shape(contents[0]),shape(contents[1]));
  for(const c of contents){
   const entries=c.history.entries;
-  assert.equal(entries[0].version,'1.7.5');assert.equal(entries.at(-1).version,'0.9.1');
+  assert.equal(entries[0].version,'1.7.6');assert.equal(entries.at(-1).version,'0.9.1');
   assert.ok(entries.length>=10);
   const html=renderPage(c,'history','../../');
   for(const [index,v]of entries.entries()){

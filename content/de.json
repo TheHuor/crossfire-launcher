@@ -119,7 +119,7 @@
     "historyIntro": "Was sich auf deinem Weg ins Crossfire-Universum verbessert hat – verständlich zusammengefasst für Spieler und Community.",
     "historyLatest": "Neuester Eintrag",
     "historyVersionNav": "Version auswählen",
-    "historySource": "Redaktionell zusammengefasst aus der CHANGELOG.md und den Änderungen der Git-Tags des Crossfire Game Launcher. Die Einträge 1.7.4 und 1.7.5 basieren auf Git-Tags vom 11. Oktober 2026. Die Chronik zeigt nicht deine installierte Version. Rein interne Entwickleränderungen sind ausgelassen.",
+    "historySource": "Redaktionell zusammengefasst aus der CHANGELOG.md und den Änderungen der Git-Tags des Crossfire Game Launcher. Die Chronik zeigt nicht deine installierte Version. Rein interne Entwickleränderungen sind ausgelassen.",
     "historyScope": "Diese Chronik beschreibt den Launcher. Änderungen an Missionen, Schiffen oder Multiplayer-Spielinhalten gehören zu den Crossfire-Spielupdates.",
     "historyLink": "Zur Launcher-Chronik"
   },
@@ -1365,6 +1365,18 @@
   ],
   "history": {
     "entries": [
+      {
+        "version": "1.7.6",
+        "date": "2026-10-12",
+        "relatedIds": [
+          "accounts"
+        ],
+        "title": "Neue Accounts zuverlässiger erstellen",
+        "notes": [
+          "Beim Erstellen eines neuen Accounts prüft der Launcher die 32-Bit- und die 64-Bit-Ansicht der Windows-Registry. Ein 32-Bit-Launcher meldet den benötigten Windows-Wert dadurch nicht mehr als fehlend, wenn er nur in der 64-Bit-Ansicht vorhanden ist.",
+          "Diese Prüfung liest die Windows-Daten nur aus und verändert sie nicht."
+        ]
+      },
       {
         "version": "1.7.5",
         "date": "2026-10-11",
