@@ -37,7 +37,7 @@
     "communityTitle": "Still have a question, Captain?",
     "communityBody": "Find answers with guided help or talk to the Crossfire community on the SWAT Portal.",
     "communityLink": "Visit the SWAT Portal",
-    "supportLink": "Visit the support forum",
+    "supportLink": "Get help in the SWAT forum",
     "footer": "Your home for the Crossfire Game Launcher.",
     "footerNote": "Freelancer: Crossfire is a community mod for Freelancer. This website guides you through installation, launcher features and support.",
     "privacy": "Language and checklist progress are stored only in your browser. No tracking.",
@@ -67,8 +67,8 @@
     "back": "Back",
     "restart": "Start again",
     "related": "Related guides",
-    "supportTitle": "Make your support request count.",
-    "supportBody": "If the checks do not help, complete this template and attach the support package from the launcher to your forum post.",
+    "supportTitle": "Get help from the community.",
+    "supportBody": "Still stuck? Fill in the template and attach the launcher’s support package to your SWAT forum post.",
     "reportLabel": "Bug report template",
     "copy": "Copy template",
     "copied": "Template copied.",
@@ -92,7 +92,7 @@
       "Time of the issue:",
       "What happened:",
       "What I expected:",
-      "Steps to reproduce:",
+      "What you did before the problem:",
       "Checks already tried:",
       "Support package attached: yes / no"
     ],
@@ -102,7 +102,7 @@
       "Reproduce the issue and note the exact message.",
       "Enable Verbose logging before retrying, if more detail is needed.",
       "In the launcher, use Log → Support Package... to create the ZIP.",
-      "Attach the ZIP in the support forum and describe the reproduction steps."
+      "Attach the ZIP in the support forum and describe what you did before the problem."
     ],
     "forumNote": "Describe your issue in the SWAT support forum. The community can help you there.",
     "breadcrumbs": "Breadcrumbs",
@@ -327,7 +327,7 @@
           "id": "account-operation-errors",
           "heading": "Activation, signatures and save errors",
           "paragraphs": [
-            "“Could not write account to the registry”: activation failed. Check the selected entry and the specific error in the log. For access errors, check permissions on the affected registry entry; for a missing ID or signature, use complete original data. Retry after addressing the cause.",
+            "“Could not write account to the registry”: your selected account could not be activated. Check its ID and signature and read the error in Log. If access is denied, running with administrator permissions may be needed. Then try activating again.",
             "“Account name is empty”: the technical account ID is missing, rather than the Display name. Recover the correct ID from your backup. “Signature mismatch” means the ID and signature do not match. Verify the ID first; Regenerate Signature can then calculate its matching signature. Save afterwards. A valid signature does not confirm that your characters exist on a server.",
             "Delete is disabled for the active account. Activate another account before removing it from the local list. Removing an entry is not a substitute for backing up its old ID.",
             "“Saving accounts failed” appears in the log. Check the reported path, available disk space and write access. Save again before closing the manager; changes are not reliably stored when saving fails.",
@@ -392,19 +392,19 @@
           "id": "general-options",
           "heading": "General: interface and game options",
           "paragraphs": [
-            "UI Scaling changes the size of the launcher interface. The displayed 100% value belongs to this capture. Reset resets its respective slider.",
-            "Background Music controls background music volume. This example shows 4%; it is not a general recommendation.",
-            "General Options contains Open SP, Window-Mode, Adjust to Desktop resolution and Use Low Resolution. Window-Mode is the windowed-mode option; the two resolution options concern matching the desktop or using a lower resolution.",
-            "Reduce animations to save power reduces launcher animations. It is enabled in the screenshot."
+            "Use UI Scaling to make the launcher interface larger or smaller. Choose a size you can read comfortably. Reset restores the slider.",
+            "Background Music controls the launcher music volume. Set it to your preference.",
+            "General Options includes Open SP, Window-Mode, Adjust to Desktop resolution and Use Low Resolution. Window-Mode runs the game in a window. The resolution options match your screen or use a lower resolution.",
+            "Reduce animations to save power reduces launcher animations to save energy."
           ]
         },
         {
           "id": "graphics-options",
           "heading": "Graphics: choose a shader or renderer",
           "paragraphs": [
-            "Shader Options lets you choose one of the offered graphics variants. DX10/11/12 (V2) is highlighted in this screenshot.",
+            "Choose your preferred graphics variant under Shader Options. The screenshot shows DX10/11/12 (V2) selected.",
             "Other visible options are Vanilla FL, Vanilla FL (legacy), DX10/11/12 (V1), OpenGL Renderer, ENB Default (DX9), RS+SFX SMAA (DX9), RS+SFX FXAA (DX9) and RS+SFX Emboss (DX9).",
-            "The suitable choice depends on your system and the appearance you want. When investigating graphics issues, change only the variant and check the next game launch. The screenshot alone does not establish a performance ranking."
+            "Try a variant that runs well on your PC and gives you the look you want. When fixing graphics issues, change one variant and launch again so you can compare the result."
           ]
         },
         {
@@ -520,13 +520,13 @@
           "id": "enable-dumps",
           "heading": "Enable collection",
           "paragraphs": [
-            "Crash dump collection is optional. Enable it when needed under Settings → General → Diagnostics. The feature shown in the existing guide is marked experimental.",
+            "If the game crashes, you can enable crash dump collection under Settings → General → Diagnostics. It is optional and marked experimental.",
             "Generated files are stored in CrashDumps/ within the launcher folder. Collection and the number of retained dumps depend on your settings."
           ]
         },
         {
           "id": "dump-support",
-          "heading": "Use them for support",
+          "heading": "Help the community investigate a crash",
           "paragraphs": [
             "After reproducing the issue, create a support package. It may include up to two of the newest crash dumps. If collection is disabled, those dumps are not expected to be available."
           ]
@@ -570,7 +570,7 @@
           "id": "send-report",
           "heading": "Report the issue",
           "paragraphs": [
-            "Attach the ZIP to your post in the official support forum. Describe reproduction steps, the time and the message you saw. Support takes place in the forum, not through this website."
+            "Attach the ZIP to your post in the SWAT support forum. Explain what you did before the problem, when it happened and which message you saw. This helps other players and the Crossfire team help you."
           ]
         }
       ],
@@ -657,17 +657,17 @@
           "id": "windows-uac",
           "heading": "UAC: allow changes to your device?",
           "paragraphs": [
-            "“Do you want to allow this app to make changes to your device?” is a different prompt: User Account Control (UAC). It requests elevated permissions and can appear when a program asks for them, even if you did not select “Run as administrator” yourself.",
-            "Check the displayed app name, publisher and details before deciding. A UAC prompt does not confirm that a file is safe. This guide does not establish a general requirement to launch the launcher as administrator.",
-            "If the prompt is unexpected, note whether it appears during launcher startup, an update or game launch. These details and the exact wording help support identify the trigger."
+            "“Do you want to allow this app to make changes to your device?” is the Windows prompt for administrator permissions (UAC). It can appear even if you did not choose “Run as administrator”.",
+            "Check that the prompt belongs to the launcher or installer you just opened. Confirm only if you trust the program and want to allow the change. This does not mean you need to always run the launcher as administrator.",
+            "If you cannot identify the prompt, note whether it appears during startup, an update or launching the game. The exact message helps the SWAT community understand what happened."
           ]
         },
         {
           "id": "windows-other-block",
           "heading": "If Windows continues to block the app",
           "paragraphs": [
-            "Smart App Control is a different Windows protection feature from SmartScreen. If that name appears in the message, or no option to continue is available, record the message and contact support or your IT team on a managed device.",
-            "Keep Windows protections enabled. For diagnosis, include your Windows version, launcher version, filename and when the prompt appears."
+            "If the message names Smart App Control or offers no button to continue, note the exact text. Ask the Crossfire community in the SWAT forum if you are stuck.",
+            "Keep Windows protection enabled. Include your Windows and launcher versions and when the message appears in your forum post."
           ]
         }
       ]
@@ -911,7 +911,7 @@
     {
       "id": "preferences",
       "title": "Accounts or appearance?",
-      "body": "Choose the relevant area. The guides explain confirmed launcher features.",
+      "body": "Choose the relevant area. The guides show you how to manage your accounts and settings.",
       "choices": [
         {
           "label": "Manage account profiles",
@@ -971,7 +971,7 @@
     },
     {
       "id": "diagnose",
-      "title": "Document the issue clearly",
+      "title": "Explain the issue in your forum post",
       "body": "Open Log. If needed, first enable Verbose logging in Settings → General → Diagnostics and reproduce the issue. Then create the ZIP under Log → Support Package... and complete the report template below.",
       "choices": [],
       "articleIds": [
@@ -995,7 +995,7 @@
       ]
     }
   ],
-  "reportTemplate": "Launcher version:\nPlease fill in\n\nWindows version:\nPlease fill in\n\nTime of the issue:\nPlease fill in\n\nWhat happened:\nPlease fill in\n\nWhat I expected:\nPlease fill in\n\nSteps to reproduce:\nPlease fill in\n\nChecks already tried:\nPlease fill in\n\nSupport package attached: yes / no\nPlease fill in",
+  "reportTemplate": "Launcher version:\nPlease fill in\n\nWindows version:\nPlease fill in\n\nTime of the issue:\nPlease fill in\n\nWhat happened:\nPlease fill in\n\nWhat I expected:\nPlease fill in\n\nWhat you did before the problem:\nPlease fill in\n\nChecks already tried:\nPlease fill in\n\nSupport package attached: yes / no\nPlease fill in",
   "featurePages": [
     {
       "id": "updates",
@@ -1214,7 +1214,7 @@
       "steps": [
         {
           "title": "Record the issue",
-          "body": "Write down reproduction steps, time and the exact message."
+          "body": "Write down what you did before the problem, time and the exact message."
         },
         {
           "title": "Create the ZIP",

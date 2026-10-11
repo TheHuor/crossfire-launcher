@@ -37,7 +37,7 @@
     "communityTitle": "Noch eine Frage, Captain?",
     "communityBody": "Finde Lösungen in der geführten Hilfe oder sprich mit der Crossfire-Community im SWAT-Portal.",
     "communityLink": "Zum SWAT-Portal",
-    "supportLink": "Zum Supportforum",
+    "supportLink": "Hilfe im SWAT-Forum",
     "footer": "Deine Anlaufstelle für den Crossfire Game Launcher.",
     "footerNote": "Freelancer: Crossfire ist ein Community-Mod für Freelancer. Diese Website führt dich durch Installation, Bedienung und Support.",
     "privacy": "Sprachwahl und Checklistenfortschritt werden nur in deinem Browser gespeichert. Kein Tracking.",
@@ -67,8 +67,8 @@
     "back": "Zurück",
     "restart": "Neu beginnen",
     "related": "Passende Anleitungen",
-    "supportTitle": "Gut vorbereitet zum Support.",
-    "supportBody": "Wenn die Prüfschritte nicht helfen, ergänze diese Vorlage und füge das Support-Paket aus dem Launcher im Forum hinzu.",
+    "supportTitle": "Die Community hilft dir weiter.",
+    "supportBody": "Noch nicht gelöst? Fülle die Vorlage aus und hänge das Support-Paket aus dem Launcher an deinen Beitrag im SWAT-Forum an.",
     "reportLabel": "Vorlage für deinen Fehlerbericht",
     "copy": "Vorlage kopieren",
     "copied": "Vorlage kopiert.",
@@ -92,7 +92,7 @@
       "Zeitpunkt des Fehlers:",
       "Was passiert:",
       "Was ich erwartet habe:",
-      "Schritte zum Reproduzieren:",
+      "Was du vor dem Fehler gemacht hast:",
       "Bereits geprüft:",
       "Support-Paket angehängt: ja / nein"
     ],
@@ -327,7 +327,7 @@
           "id": "account-operation-errors",
           "heading": "Aktivierung, Signaturen und Speicherfehler",
           "paragraphs": [
-            "„Could not write account to the registry“: Der Account konnte nicht aktiviert werden. Prüfe den ausgewählten Eintrag und die konkrete Fehlermeldung im Log. Bei einem Zugriffsfehler prüfe die Berechtigung für den betroffenen Registry-Eintrag; bei fehlender ID oder Signatur verwende vollständige Originaldaten. Wiederhole die Aktivierung erst nach Behebung der Ursache.",
+            "„Could not write account to the registry“: Dein ausgewählter Account konnte nicht aktiviert werden. Prüfe seine ID und Signatur und lies den Fehler im Log. Wenn dort ein Zugriff verweigert wird, kann ein Start mit Administratorrechten nötig sein. Versuche danach die Aktivierung erneut.",
             "„Account name is empty“: Es fehlt die technische Account-ID, nicht der Display name. Verwende die richtige ID aus deiner Sicherung. „Signature mismatch“ bedeutet, dass ID und Signatur nicht zusammenpassen. Prüfe zuerst die ID; erst danach kann Regenerate Signature die passende Signatur berechnen. Speichere anschließend. Eine gültige Signatur bestätigt nicht, dass deine Charaktere auf einem Server vorhanden sind.",
             "Delete ist beim aktiven Account deaktiviert. Um ihn aus der lokalen Liste zu entfernen, aktiviere zuerst einen anderen Account. Löschen aus dieser Liste ersetzt keine Sicherung der alten ID.",
             "„Saving accounts failed“ wird im Log gemeldet. Prüfe den genannten Pfad, freien Speicher und Schreibzugriff. Speichere erneut, bevor du den Manager schließt; Änderungen sind bei einem Fehler nicht zuverlässig gesichert.",
@@ -392,19 +392,19 @@
           "id": "general-options",
           "heading": "General: Oberfläche und Spieloptionen",
           "paragraphs": [
-            "UI Scaling verändert die Größe der Launcher-Oberfläche. Der gezeigte Wert 100 % stammt aus dieser Aufnahme. Reset setzt den jeweiligen Regler zurück.",
-            "Background Music regelt die Lautstärke der Hintergrundmusik. Im Beispiel sind 4 % eingestellt; das ist keine allgemeine Empfehlung.",
-            "General Options enthält Open SP, Window-Mode, Adjust to Desktop resolution und Use Low Resolution. Window-Mode ist die Option für den Fensterbetrieb; die beiden Auflösungsoptionen betreffen die Anpassung an den Desktop beziehungsweise eine niedrigere Auflösung.",
-            "Reduce animations to save power reduziert Animationen des Launchers. Im Screenshot ist die Option eingeschaltet."
+            "Mit UI Scaling machst du die Launcher-Oberfläche größer oder kleiner. Probiere eine Größe, bei der du alles gut lesen kannst. Reset setzt den Regler zurück.",
+            "Background Music regelt die Lautstärke der Launcher-Musik. Stelle sie so ein, wie es dir gefällt.",
+            "Unter General Options findest du Open SP, Window-Mode, Adjust to Desktop resolution und Use Low Resolution. Window-Mode startet das Spiel im Fenster. Die Auflösungsoptionen passen das Spiel an deinen Bildschirm an oder verwenden eine niedrigere Auflösung.",
+            "Reduce animations to save power reduziert die Animationen im Launcher und spart damit Energie."
           ]
         },
         {
           "id": "graphics-options",
           "heading": "Graphics: Shader und Renderer wählen",
           "paragraphs": [
-            "Unter Shader Options kannst du eine der angebotenen Grafikvarianten auswählen. Die hervorgehobene Variante im Screenshot ist DX10/11/12 (V2).",
+            "Wähle unter Shader Options die gewünschte Grafikvariante. Im Screenshot ist DX10/11/12 (V2) ausgewählt.",
             "Weitere sichtbare Optionen sind Vanilla FL, Vanilla FL (legacy), DX10/11/12 (V1), OpenGL Renderer, ENB Default (DX9), RS+SFX SMAA (DX9), RS+SFX FXAA (DX9) und RS+SFX Emboss (DX9).",
-            "Welche Variante passend ist, hängt von deinem System und dem gewünschten Erscheinungsbild ab. Wenn du Grafikprobleme untersuchst, ändere jeweils nur die Variante und prüfe den nächsten Spielstart. Die Aufnahme allein belegt keine Leistungsrangfolge."
+            "Probiere aus, welche Variante auf deinem PC gut läuft und dir gefällt. Ändere bei Grafikproblemen nur eine Variante und starte das Spiel erneut, damit du die Wirkung vergleichen kannst."
           ]
         },
         {
@@ -520,13 +520,13 @@
           "id": "enable-dumps",
           "heading": "Erfassung einschalten",
           "paragraphs": [
-            "Crash-Dump-Erfassung ist optional. Aktiviere sie bei Bedarf unter Settings → General → Diagnostics. Die im vorhandenen Guide gezeigte Funktion ist als experimentell gekennzeichnet.",
+            "Wenn das Spiel abstürzt, kannst du unter Settings → General → Diagnostics die Crash-Dump-Erfassung einschalten. Sie ist optional und als experimentell gekennzeichnet.",
             "Die erzeugten Dateien liegen im Ordner CrashDumps/ unter dem Launcher-Ordner. Erfassung und Anzahl aufbewahrter Dumps richten sich nach deinen Einstellungen."
           ]
         },
         {
           "id": "dump-support",
-          "heading": "Für den Support verwenden",
+          "heading": "Der Community bei der Fehlersuche helfen",
           "paragraphs": [
             "Erstelle nach dem erneuten Auftreten ein Support-Paket. Es kann bis zu zwei der neuesten Crash-Dumps enthalten. Ohne aktivierte Erfassung sind keine entsprechenden Dumps zu erwarten."
           ]
@@ -570,7 +570,7 @@
           "id": "send-report",
           "heading": "Den Fehler melden",
           "paragraphs": [
-            "Hänge das ZIP an deinen Beitrag im offiziellen Supportforum an. Beschreibe die Schritte zum Reproduzieren, den Zeitpunkt und die beobachtete Meldung. Der Support erfolgt im Forum, nicht über diese Website."
+            "Hänge das ZIP an deinen Beitrag im SWAT-Supportforum an. Beschreibe, was du vor dem Fehler gemacht hast, wann er auftrat und welche Meldung du gesehen hast. So können andere Spieler und das Crossfire-Team dir helfen."
           ]
         }
       ],
@@ -657,17 +657,17 @@
           "id": "windows-uac",
           "heading": "UAC: Änderungen am Gerät zulassen?",
           "paragraphs": [
-            "„Möchten Sie zulassen, dass durch diese App Änderungen an Ihrem Gerät vorgenommen werden?“ ist eine andere Meldung: die Benutzerkontensteuerung (UAC). Sie fragt nach erhöhten Rechten und kann erscheinen, wenn ein Programm diese anfordert – auch wenn du nicht selbst „Als Administrator ausführen“ gewählt hast.",
-            "Prüfe den angezeigten Programmnamen, Herausgeber und die Details, bevor du entscheidest. Eine UAC-Abfrage ist keine Bestätigung, dass eine Datei sicher ist. Für den Launcher ist hier keine allgemeine Pflicht zum Administratorstart dokumentiert.",
-            "Falls eine unerwartete Abfrage erscheint, notiere, ob sie beim Launcher-Start, Update oder Spielstart auftritt. Diese Angaben und der genaue Wortlaut helfen dem Support, den Auslöser zu bestimmen."
+            "„Möchten Sie zulassen, dass durch diese App Änderungen an Ihrem Gerät vorgenommen werden?“ ist die Windows-Abfrage nach Administratorrechten (UAC). Sie kann auch erscheinen, wenn du nicht selbst „Als Administrator ausführen“ gewählt hast.",
+            "Prüfe, ob die Abfrage zu dem gerade gestarteten Launcher oder Installer gehört. Bestätige nur, wenn du dem Programm vertraust und die Änderung zulassen möchtest. Du musst den Launcher deshalb nicht grundsätzlich als Administrator starten.",
+            "Wenn du die Abfrage nicht zuordnen kannst, notiere, ob sie beim Start, beim Update oder beim Spielstart erscheint. Mit dem genauen Meldungstext kann die Community im SWAT-Forum leichter helfen."
           ]
         },
         {
           "id": "windows-other-block",
           "heading": "Wenn Windows den Start weiterhin blockiert",
           "paragraphs": [
-            "Smart App Control ist eine andere Windows-Schutzfunktion als SmartScreen. Wenn diese Bezeichnung im Hinweis steht oder keine Fortsetzen-Option verfügbar ist, notiere die Meldung und wende dich an den Support beziehungsweise bei einem verwalteten Gerät an die zuständige IT.",
-            "Lass die Windows-Schutzfunktionen aktiviert. Zur Diagnose sind Windows-Version, Launcher-Version, Dateiname und der Zeitpunkt der Meldung hilfreich."
+            "Steht in der Meldung Smart App Control oder gibt es keine Schaltfläche zum Fortsetzen, notiere den genauen Text. Frage damit im SWAT-Forum nach, wenn du nicht weiterkommst.",
+            "Lass die Windows-Schutzfunktionen aktiviert. Nenne im Forum deine Windows- und Launcher-Version sowie den Zeitpunkt, an dem der Hinweis erscheint."
           ]
         }
       ]
@@ -911,7 +911,7 @@
     {
       "id": "preferences",
       "title": "Accounts oder Darstellung?",
-      "body": "Wähle den passenden Bereich. Die Anleitungen erklären die bestätigten Launcher-Funktionen.",
+      "body": "Wähle den passenden Bereich. Die Anleitungen zeigen dir, wie du deine Accounts und Einstellungen verwaltest.",
       "choices": [
         {
           "label": "Account-Profile verwalten",
@@ -971,7 +971,7 @@
     },
     {
       "id": "diagnose",
-      "title": "Den Fehler nachvollziehbar dokumentieren",
+      "title": "Den Fehler für das Forum festhalten",
       "body": "Öffne Log. Aktiviere bei Bedarf zuvor Verbose logging in Settings → General → Diagnostics und löse das Problem erneut aus. Erstelle danach unter Log → Support Package... das ZIP und ergänze die Berichtsvorlage unten.",
       "choices": [],
       "articleIds": [
@@ -995,7 +995,7 @@
       ]
     }
   ],
-  "reportTemplate": "Launcher-Version:\nBitte ergänzen\n\nWindows-Version:\nBitte ergänzen\n\nZeitpunkt des Fehlers:\nBitte ergänzen\n\nWas passiert:\nBitte ergänzen\n\nWas ich erwartet habe:\nBitte ergänzen\n\nSchritte zum Reproduzieren:\nBitte ergänzen\n\nBereits geprüft:\nBitte ergänzen\n\nSupport-Paket angehängt: ja / nein\nBitte ergänzen",
+  "reportTemplate": "Launcher-Version:\nBitte ergänzen\n\nWindows-Version:\nBitte ergänzen\n\nZeitpunkt des Fehlers:\nBitte ergänzen\n\nWas passiert:\nBitte ergänzen\n\nWas ich erwartet habe:\nBitte ergänzen\n\nWas du vor dem Fehler gemacht hast:\nBitte ergänzen\n\nBereits geprüft:\nBitte ergänzen\n\nSupport-Paket angehängt: ja / nein\nBitte ergänzen",
   "featurePages": [
     {
       "id": "updates",
@@ -1130,7 +1130,7 @@
           "body": "Wenn die Verbindung wieder verfügbar ist, verwende Retry im Launcher."
         },
         {
-          "title": "Eine anhaltende Störung dokumentieren",
+          "title": "Wenn die Verbindung weiterhin fehlt",
           "body": "Notiere Meldung und Zeitpunkt und sichere passende Log-Einträge für den Support."
         }
       ],
@@ -1214,7 +1214,7 @@
       "steps": [
         {
           "title": "Problem festhalten",
-          "body": "Notiere die Schritte zum Reproduzieren, Zeitpunkt und genaue Meldung."
+          "body": "Notiere, was du vor dem Fehler gemacht hast, wann er auftrat und welche Meldung erschien."
         },
         {
           "title": "ZIP erstellen",
