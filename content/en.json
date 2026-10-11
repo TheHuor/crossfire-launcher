@@ -119,7 +119,7 @@
     "historyIntro": "What has improved on your way into the Crossfire universe – clear updates for players and the community.",
     "historyLatest": "Latest entry",
     "historyVersionNav": "Choose a version",
-    "historySource": "Editorial summary of the Crossfire Game Launcher CHANGELOG.md and changes in release Git tags. Entry 1.7.4 is based on the Git tag dated 11 October 2026. This history does not indicate your installed version. Changes purely for developers are omitted.",
+    "historySource": "Editorial summary of the Crossfire Game Launcher CHANGELOG.md and changes in Git tags. Entries 1.7.4 and 1.7.5 are based on Git tags dated 11 October 2026. This history does not indicate your installed version. Changes purely for developers are omitted.",
     "historyScope": "This history covers the launcher. Changes to missions, ships or Multiplayer game content belong to Crossfire game updates.",
     "historyLink": "Explore launcher history"
   },
@@ -1295,6 +1295,20 @@
   ],
   "history": {
     "entries": [
+      {
+        "version": "1.7.5",
+        "date": "2026-10-11",
+        "relatedIds": [
+          "accounts",
+          "logs"
+        ],
+        "title": "Keep your installation key safe through missing registry values",
+        "notes": [
+          "Account Manager retains the last known installation key when saving accounts, even if the current Windows registry entry is missing or empty.",
+          "When refreshing the registry information, a saved installation key can be restored if the entry is missing or empty. An existing key is preserved.",
+          "The log reports whether the account ID and installation key are present without printing the identifiers themselves."
+        ]
+      },
       {
         "version": "1.7.4",
         "date": "2026-10-11",
