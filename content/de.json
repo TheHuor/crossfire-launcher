@@ -338,11 +338,10 @@
           "id": "account-digitalproductid",
           "heading": "DigitalProductId fehlt beim Erstellen eines Accounts",
           "paragraphs": [
-            "Unter Add kann „Could not generate a new account ID“ mit dem Zusatz „DigitalProductId not found in either registry view.“ erscheinen. Der Launcher benötigt diesen Windows-Registry-Wert, um eine neue Multiplayer-Account-ID zu erzeugen. Gemeint ist ein Windows-Wert, nicht der Installationsschlüssel deines Freelancer-Accounts.",
-            "Prüfe zuerst die Launcher-Version und aktualisiere auf mindestens 1.7.6. Seit dieser Version werden beide Registry-Ansichten geprüft. Damit ist der frühere Fehler behoben, bei dem der 32-Bit-Launcher einen nur in der 64-Bit-Ansicht vorhandenen Wert nicht fand. Fehlt der Wert tatsächlich in beiden Ansichten, kann die Meldung weiterhin auftreten.",
-            "Wenn du bereits einen Account besitzt, importiere ihn aus ADF, FLIDs.ini, der aktuellen Registry oder stelle eine vorhandene Account-Sicherung wieder her. Diese Wege erzeugen keine neue Account-ID und benötigen dafür keine DigitalProductId. Bewahre deine vorhandenen Kennungen und Sicherungen auf.",
-            "Bleibt die Meldung mit aktuellem Launcher bestehen, prüfe den konkreten Fehler im Log und lass die Windows-Installation durch den Windows-Support oder einen Administrator untersuchen. Eine Neuinstallation von Freelancer oder Crossfire stellt diesen Windows-Wert nicht gezielt wieder her. Lege keinen erfundenen Registry-Wert an und übernimm keinen Wert von einem anderen PC.",
-            "Bei einer beschädigten Windows-Installation kommen Windows-Reparatur und gegebenenfalls eine Windows-Neuinstallation als letzte Möglichkeiten infrage. Eine fehlende DigitalProductId allein belegt aber nicht, dass nur eine Neuinstallation hilft; auch eine Reparatur ist keine garantierte Lösung für diesen speziellen Wert. Sichere vor solchen Schritten persönliche Dateien und Account-Daten. Microsoft beschreibt die unterstützten Wiederherstellungswege: https://support.microsoft.com/en-us/windows/experience/backup-recovery/recovery-options-in-windows"
+            "Beim Hinzufügen eines neuen Accounts über Add kann die Meldung „DigitalProductId not found in either registry view.“ erscheinen. Dem Launcher fehlt dann ein benötigter Registry-Wert für die neue Account-ID.",
+            "Aktualisiere zuerst auf Launcher-Version 1.7.6 oder neuer und versuche es erneut. Diese Version behebt den Fehler, wenn der Wert nur in der anderen Windows-Registry-Ansicht vorhanden ist.",
+            "Bleibt der Fehler bestehen, kannst du eine Neuinstallation von Freelancer versuchen. Sichere vorher deine Account-Daten und Spielstände. Anschließend muss Crossfire wieder installiert werden. Eine Neuinstallation ist keine garantierte Lösung, wenn der benötigte Windows-Registry-Wert weiterhin fehlt.",
+            "Wenn du bereits einen Account hast, kannst du ihn stattdessen aus ADF, FLIDs.ini oder der aktuellen Registry importieren beziehungsweise eine Account-Sicherung wiederherstellen. Dafür muss keine neue Account-ID erzeugt werden."
           ]
         },
         {
