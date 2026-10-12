@@ -324,6 +324,15 @@
           ]
         },
         {
+          "id": "account-switch-warning",
+          "heading": "Warnung beim Accountwechsel: Spiel läuft noch",
+          "paragraphs": [
+            "„Transponder Override Warning“ erscheint, wenn du Activate selected verwendest, während Freelancer noch läuft. Der Launcher fragt nach, bevor er den Account wechselt. Die Warnung bedeutet nicht, dass dein Account bereits beschädigt ist.",
+            "Bist du noch mit einem Charakter auf dem Server, wähle No. Kehre zuerst zur Serverauswahl zurück oder schließe das Spiel. Ein Accountwechsel während des Spielens kann Probleme mit deinen Charakterdaten verursachen.",
+            "Yes bestätigt den Wechsel trotz laufendem Spiel. Verwende es erst, wenn du an der Serverauswahl bist und den gewünschten Account geprüft hast. No bricht den Wechsel ab; dein bisheriger Account bleibt aktiv. Am einfachsten wechselst du bei geschlossenem Spiel und startest danach erneut."
+          ]
+        },
+        {
           "id": "account-operation-errors",
           "heading": "Aktivierung, Signaturen und Speicherfehler",
           "paragraphs": [
