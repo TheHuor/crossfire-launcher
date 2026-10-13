@@ -310,7 +310,7 @@
           "paragraphs": [
             "Wähle im Import-Menü die Übernahme des aktuellen Registry-Accounts. Der Launcher liest den derzeit für diesen Windows-Benutzer eingetragenen Freelancer-Multiplayer-Account. Das ist kein Import aller früher verwendeten Accounts.",
             "Ist diese Account-ID bereits in der Liste, wird das vorhandene Profil ausgewählt. Andernfalls entsteht ein neues Profil mit einem automatisch vergebenen Namen und der vorhandenen Signatur. Gib ihm einen passenden Display name, ergänze Charakternamen unter Notes und bestätige Save changes.",
-            "Import und Aktivierung sind getrennt: Activate selected schreibt die ID und Signatur des ausgewählten Profils in die Registry. Wechsle Accounts vorzugsweise bei geschlossenem Spiel. Läuft Freelancer, weist der Launcher auf den nötigen Serverauswahl-Bildschirm hin; wechsle nicht während einer laufenden Spielsitzung."
+            "Activate selected aktiviert das ausgewählte Profil für Multiplayer. Du kannst dazu im Serverauswahl-Menü bleiben und die Warnung mit Yes bestätigen; das Spiel muss nicht neu gestartet werden. Wechsle nicht, solange du mit einem Charakter auf einem Server spielst."
           ]
         },
         {
@@ -328,8 +328,8 @@
           "heading": "Warnung beim Accountwechsel: Spiel läuft noch",
           "paragraphs": [
             "„Transponder Override Warning“ erscheint, wenn du Activate selected verwendest, während Freelancer noch läuft. Der Launcher fragt nach, bevor er den Account wechselt. Die Warnung bedeutet nicht, dass dein Account bereits beschädigt ist.",
-            "Bist du noch mit einem Charakter auf dem Server, wähle No. Kehre zuerst zur Serverauswahl zurück oder schließe das Spiel. Ein Accountwechsel während des Spielens kann Probleme mit deinen Charakterdaten verursachen.",
-            "Yes bestätigt den Wechsel trotz laufendem Spiel. Verwende es erst, wenn du an der Serverauswahl bist und den gewünschten Account geprüft hast. No bricht den Wechsel ab; dein bisheriger Account bleibt aktiv. Am einfachsten wechselst du bei geschlossenem Spiel und startest danach erneut."
+            "Du kannst den Account wechseln, während du im Serverauswahl-Menü bist. Lass das Spiel geöffnet, wähle im Account Manager den gewünschten Account, klicke Activate selected und bestätige die Warnung mit Yes. Danach kannst du dich mit dem gewählten Account verbinden. Ein Neustart des Spiels ist dafür nicht nötig.",
+            "Bist du noch mit einem Charakter auf dem Server, wähle No und kehre zuerst zur Serverauswahl zurück. Ein Accountwechsel während des Spielens kann Probleme mit deinen Charakterdaten verursachen. No bricht den Wechsel ab; dein bisheriger Account bleibt aktiv. Alternativ kannst du das Spiel schließen, den Account wechseln und anschließend erneut starten."
           ]
         },
         {
@@ -1068,7 +1068,7 @@
         },
         {
           "title": "Gewünschten Account aktivieren",
-          "body": "Wähle dein Profil und nutze Activate selected vor dem Spielstart. Ein Import allein aktiviert es nicht."
+          "body": "Wähle dein Profil und nutze Activate selected. Das geht auch bei geöffnetem Spiel im Serverauswahl-Menü, ohne Neustart. Ein Import allein aktiviert den Account nicht."
         }
       ],
       "sectionShots": {

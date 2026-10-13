@@ -310,7 +310,7 @@
           "paragraphs": [
             "Choose the current registry account option from the Import menu. The launcher reads the Freelancer Multiplayer account currently registered for this Windows user. It does not import every account you have used in the past.",
             "If that account ID is already listed, the existing profile is selected. Otherwise a profile is added with an automatic name and the available signature. Set a meaningful Display name, record character names in Notes and click Save changes.",
-            "Importing and activating are separate actions. Activate selected writes the selected profile’s ID and signature to the registry. Prefer switching with the game closed. If Freelancer is running, the launcher warns that you must be at the server selection screen; do not switch during an active play session."
+            "Activate selected makes the selected profile active for Multiplayer. You can stay at the server selection screen and confirm the warning with Yes; no game restart is needed. Do not switch while playing a character on a server."
           ]
         },
         {
@@ -327,9 +327,9 @@
           "id": "account-switch-warning",
           "heading": "Account switch warning: the game is still running",
           "paragraphs": [
-            "“Transponder Override Warning” appears when you use Activate selected while Freelancer is still running. The launcher asks before switching accounts. This warning does not mean your account is already damaged.",
-            "If you are still playing a character on the server, choose No. Return to the server selection screen or close the game first. Switching accounts while playing can cause problems with your character data.",
-            "Yes confirms the switch while the game is running. Use it only once you are at the server selection screen and have checked the account you want. No cancels the switch and keeps your current account active. The simplest option is to switch with the game closed and then launch it again."
+            "You can switch accounts while Freelancer is running; “Transponder Override Warning” asks you to confirm before the switch. The warning does not mean your account is already damaged.",
+            "You can switch while you are at the server selection screen. Leave the game open, select the account in Account Manager, click Activate selected and confirm the warning with Yes. Then connect using the chosen account. You do not need to restart the game.",
+            "If you are still playing a character on a server, choose No and return to the server selection screen first. Switching while playing can cause problems with character data. No cancels the switch and keeps your current account active. Alternatively, close the game, switch accounts and launch again."
           ]
         },
         {
@@ -1068,7 +1068,7 @@
         },
         {
           "title": "Activate the intended account",
-          "body": "Select the profile and use Activate selected before launching the game. Importing alone does not activate it."
+          "body": "Select your profile and use Activate selected. You can do this with the game open at the server selection screen, without restarting. Importing alone does not activate the account."
         }
       ],
       "sectionShots": {
