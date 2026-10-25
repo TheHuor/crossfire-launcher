@@ -1388,6 +1388,23 @@
   "history": {
     "entries": [
       {
+        "version": "1.7.7",
+        "date": "2026-10-25",
+        "relatedIds": [
+          "updates",
+          "crash-dumps",
+          "logs",
+          "support-package"
+        ],
+        "title": "Launcher updates install reliably",
+        "notes": [
+          "A launcher update is no longer lost when the old launcher is slow to close. Previously, the same update could be downloaded again on every start. The updater now waits until the old launcher has closed and retries locked files several times.",
+          "The update result appears in launcher.log on the next start – success or failure, including the affected files. Installation paths with accented or special characters also work.",
+          "Cancelling a game start or closing the launcher no longer creates a crash dump of several hundred MB. Real crashes are still captured.",
+          "The log and support package show the actual Windows version. When compatibility mode is active, the launcher warns you, because the game inherits that mode."
+        ]
+      },
+      {
         "version": "1.7.6",
         "date": "2026-10-12",
         "relatedIds": [

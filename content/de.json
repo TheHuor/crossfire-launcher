@@ -1388,6 +1388,23 @@
   "history": {
     "entries": [
       {
+        "version": "1.7.7",
+        "date": "2026-10-25",
+        "relatedIds": [
+          "updates",
+          "crash-dumps",
+          "logs",
+          "support-package"
+        ],
+        "title": "Launcher-Updates kommen zuverlässig an",
+        "notes": [
+          "Ein Launcher-Update geht nicht mehr verloren, wenn sich der alte Launcher langsam beendet. Bisher konnte dasselbe Update bei jedem Start erneut heruntergeladen werden. Jetzt wartet der Updater, bis der alte Launcher geschlossen ist, und versucht gesperrte Dateien mehrfach zu ersetzen.",
+          "Das Ergebnis des Updates steht beim nächsten Start in launcher.log – erfolgreich oder fehlgeschlagen, mit den betroffenen Dateien. Installationspfade mit Umlauten oder Sonderzeichen funktionieren ebenfalls.",
+          "Wenn du einen Spielstart abbrichst oder den Launcher schließt, entsteht kein mehrere hundert MB großer Crash-Dump mehr. Echte Abstürze werden weiterhin erfasst.",
+          "Log und Support-Paket zeigen die tatsächliche Windows-Version. Ist der Kompatibilitätsmodus aktiv, warnt der Launcher, denn das Spiel übernimmt diesen Modus."
+        ]
+      },
+      {
         "version": "1.7.6",
         "date": "2026-10-12",
         "relatedIds": [
